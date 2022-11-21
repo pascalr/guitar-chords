@@ -64,7 +64,3 @@ Bb           C             D
 Crazy little thing called love, yeah yeah
 Bb           C             D
 Crazy little thing called love, yeah yeah...
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

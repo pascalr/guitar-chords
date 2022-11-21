@@ -118,7 +118,4 @@ Till it's gone, oh, oh
 Till it's gone, oh, oh
 Till it's gone, oh, oh
 Till it's gone, oh
-What can I do if I do till it's gone?</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>
+What can I do if I do till it's gone?

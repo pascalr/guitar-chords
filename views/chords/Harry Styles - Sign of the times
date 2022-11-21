@@ -166,7 +166,3 @@ Away!
 We got to! We got to!
 C       Bb
 Awwwwaaaaaaay!
-</pre>
-<script>
-$('pre').css('column-count', '4')
-</script>

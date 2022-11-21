@@ -80,7 +80,3 @@ Planet Earth is blue and there's nothing I can do
 C F G A A         
 C F G A A 
 Fmaj7 Em  A  C  D7  E
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

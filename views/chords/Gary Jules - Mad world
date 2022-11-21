@@ -75,7 +75,3 @@ Em              A
    Enlarge your world
 Em     A
    Mad world
-</pre>
-<script>
-$('pre').css('column-count', '2')
-</script>

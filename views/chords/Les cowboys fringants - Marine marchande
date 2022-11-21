@@ -115,7 +115,3 @@ Te garde la place au chaud!
  C À boire! À boire! À boire! Juste un  G dernier coup la gr Am  ande
 Je me  F suis enga C gé dans la  G marine marcha C  nde
 Oui j' me  F suis enga C gé dans la  G marine march C  ande
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

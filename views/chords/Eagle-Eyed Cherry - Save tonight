@@ -94,7 +94,3 @@ Save tonight
 Save tonight
        Am     F  C  G
 Save tonight
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

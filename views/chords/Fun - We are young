@@ -132,7 +132,3 @@ So if by the time the bar closes
 And you feel like falling down
        F       G       C
 I'll carry you home tonight
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

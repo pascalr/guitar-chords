@@ -119,8 +119,3 @@ sometimes it hurts instead
 
 [Outro]
 G
-</pre>
-
-<script>
-$('pre').css('column-count', '3')
-</script>

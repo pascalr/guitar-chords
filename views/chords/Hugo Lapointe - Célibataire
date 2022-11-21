@@ -78,7 +78,4 @@ Et une célibataire de temps en temps !
  
  
 Prendre mon temps
-Et une célibataire de temps en temps ! </pre>
-<script>
-$('pre').css('column-count', '2')
-</script>
+Et une célibataire de temps en temps ! 

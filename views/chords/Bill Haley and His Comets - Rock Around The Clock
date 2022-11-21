@@ -59,7 +59,3 @@ We're gonna rock around the clock tonight,
 we're gonna rock, rock, rock, 'til broad daylight.
             E7                 D7                A
 We're gonna rock, gonna rock, around the clock tonight.
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

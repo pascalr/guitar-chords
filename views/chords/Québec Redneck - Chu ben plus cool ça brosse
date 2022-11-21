@@ -96,7 +96,4 @@ En malade
 J'ai soif, j'ai soif, j'ai soif
 Osti que j'ai soif (osti que j'ai soif)
 J'ai soif (j'ai soif)
-En malade</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>
+En malade

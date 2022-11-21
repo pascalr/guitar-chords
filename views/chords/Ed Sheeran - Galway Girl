@@ -124,7 +124,3 @@ Cadd9  G  D  Em
 Cadd9  G  D  Em
 Cadd9  G  D  Em
 Cadd9  G  D  Em
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

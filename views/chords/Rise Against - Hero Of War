@@ -159,7 +159,4 @@ It’s the only flag I trust
           C                           Em
 He said, "Son, have you seen the world? 
                     F                       C
-Well what would you say, if I said that you could?" </pre>
-<script>
-$('pre').css('column-count', '3')
-</script>
+Well what would you say, if I said that you could?" 

@@ -39,7 +39,4 @@ J'verrai  F pas si tu pars E  pas
  Am Tu m'ma C  nques
 On a p F lein de choses à se d E  ire
 Après la pl F  uie, le beau temps
-Mais l'or E age peut durer longte Am  mps</pre>
-<script>
-$('pre').css('column-count', '2')
-</script>
+Mais l'or E age peut durer longte Am  mps

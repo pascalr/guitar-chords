@@ -143,7 +143,3 @@ And how does it feel for one more time
 You had a bad day
               D  G  Em A  x4 (fade out)
 had a bad day
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

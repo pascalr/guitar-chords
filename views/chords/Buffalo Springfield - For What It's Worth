@@ -94,7 +94,3 @@ You better stop.
 Children, what's that sound? (fade out)
 A
 Everybody look what's goin'...
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

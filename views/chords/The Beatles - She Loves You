@@ -100,7 +100,3 @@ Em6
 Yeah, yeah, yeah
 C                  G6
 Yeah, yeah, yeah, yeah
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

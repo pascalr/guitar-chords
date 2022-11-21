@@ -110,7 +110,3 @@ E      F       E         F
 E      F       E         F
           All right!
 E      F       F         F
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

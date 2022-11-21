@@ -71,7 +71,3 @@ E       E7       Am   Am7/G   D7/F#
 Quel avenir pour nous ?
                         C
 Je voudrais un bonhomme de neige
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

@@ -128,7 +128,3 @@ Am  G    F       G
        I used to know
       Am    G   F   G
 Somebody...
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

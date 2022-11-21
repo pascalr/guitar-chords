@@ -179,7 +179,3 @@ And when you're done I'll make you do it
 all again
 N.C.
 All again
-</pre>
-<script>
-$('pre').css('column-count', '4')
-</script>

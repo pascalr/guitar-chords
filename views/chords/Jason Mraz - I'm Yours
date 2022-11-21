@@ -93,7 +93,4 @@ There's no need to complicate
             E
 This is our fate
           B
-I'm yours</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>
+I'm yours

@@ -110,7 +110,3 @@ C  Am
       Your slow hands
 C  Am
       Oooh, slow hands
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

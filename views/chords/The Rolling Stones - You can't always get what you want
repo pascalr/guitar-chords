@@ -99,7 +99,3 @@ You can't always get what you want
 And if you try sometime, you might find
                  C           F   C   F
 You get what you need  ahhhhhhah yeah
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

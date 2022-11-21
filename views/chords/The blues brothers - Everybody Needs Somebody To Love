@@ -70,7 +70,3 @@ Sweetheart to miss
 Sugar to kiss
 I need you, you, you
 I need you, you, you...
-</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>

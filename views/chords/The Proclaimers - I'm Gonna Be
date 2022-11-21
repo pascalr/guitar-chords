@@ -83,7 +83,4 @@ And I would walk 500 more
         E                           A
 Just to be the man who walked 1,000 miles
              B
-To fall down at your door</pre>
-<script>
-$('pre').css('column-count', '3')
-</script>
+To fall down at your door

@@ -5,13 +5,13 @@
   </head>
   <body>
     <%- include('partials/navbar') %>
-    <div style='max-height: 100vh; overflow: hidden;'>
+    <div style='max-height: calc(100vh - 3em); overflow: hidden;'>
       <img src='/guitar_background.jpg' style='width: 100vw;'></img>
     </div>
     <div class='trunk'>
-      <ul>
+      <ul style='list-style-type: none'>
         <% songs.forEach(song => { %>
-          <li><a href='/c/<%- encodeURIComponent(song) %>'><%- song %></a></li>
+          <li><a href='/c/<%- encodeURIComponent(song) %>' style='color: #f9bc49; text-decoration: none;'><%- song %></a></li>
         <% }) %>
       </ul>
     </div>

@@ -36,7 +36,7 @@ app.get('/c/:song', function(req, res, next) {
   // FIXME: Unsafe, but anyway this website is never meant to be showed live, only cached.
   fs.readFile(path.join('views', 'chords', req.params.song), 'utf8', function (err,data) {
     if (err) {
-      return console.log(err);
+      console.log(err);
       next('Error reading song file...')
     } else {
       res.locals.title = req.params.song

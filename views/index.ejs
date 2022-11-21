@@ -11,7 +11,7 @@
     <div class='trunk'>
       <ul style='list-style-type: none'>
         <% songs.forEach(song => { %>
-          <li><a href='/c/<%- encodeURIComponent(song) %>' style='color: #f9bc49; text-decoration: none;'><%- song %></a></li>
+          <li><a href="/c/<%- encodeURI(song) %>" style='color: #f9bc49; text-decoration: none;'><%- song %></a></li>
         <% }) %>
       </ul>
     </div>

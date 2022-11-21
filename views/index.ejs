@@ -9,7 +9,8 @@
       <img src='/guitar_background.jpg' style='width: 100vw;'></img>
     </div>
     <div class='trunk'>
-      <ul style='list-style-type: none'>
+      <h1 style='padding-left: 0.5em;'>Song list</h1>
+      <ul style='list-style-type: none; padding-left: 1em; line-height: 1.5em;'>
         <% songs.forEach(song => { %>
           <li><a href="/c/<%- encodeURI(song) %>" style='color: #f9bc49; text-decoration: none;'><%- song %></a></li>
         <% }) %>

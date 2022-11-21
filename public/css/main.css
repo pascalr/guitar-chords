@@ -2,7 +2,6 @@ body {
   margin: 0;
   background-color: #110f0f;
   color: #f9bc49;
-  line-height: 1.5rem;
 }
 
 .trunk {
@@ -10,4 +9,17 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 0.5em;
+}
+
+.d-none {
+  display: none;
+}
+  
+input#cc1:checked ~ pre { column-count: 1; }
+input#cc2:checked ~ pre { column-count: 2; }
+input#cc3:checked ~ pre { column-count: 3; }
+input#cc4:checked ~ pre { column-count: 4; }
+
+pre {
+  white-space: pre-wrap;
 }

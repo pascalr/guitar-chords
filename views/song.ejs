@@ -5,9 +5,19 @@
   </head>
   <body>
     <%- include('partials/navbar') %>
-    <div style="padding: 0 0.5em; line-height: 1.25rem;">
+    <div style="padding: 0 0.5em; min-height: 100vh">
+      <div style='margin-top: 0.2em;'></div>
+      <b>Columns: </b>
+      <input type="radio" id="cc1" name="column-count" value="1">
+      <label for="cc1">1</label>
+      <input type="radio" id="cc2" name="column-count" value="2">
+      <label for="cc2">2</label>
+      <input type="radio" id="cc3" name="column-count" value="3">
+      <label for="cc3">3</label>
+      <input type="radio" id="cc4" name="column-count" value="4">
+      <label for="cc4">4</label>
       <h1><%- title %></h1>
-      <pre><%- song %></pre>
+      <pre style="font-size: 1.1em; line-height: 1.25rem"><%- song %></pre>
     </div>
     <%- include('partials/footer') %>
   </body>

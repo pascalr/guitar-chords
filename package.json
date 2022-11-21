@@ -9,7 +9,8 @@
     "url": "https://github.com/pascalr/guitar-chords.git"
   },
   "scripts": {
-    "dev": "nodemon ./server.js"
+    "dev": "nodemon ./server.js",
+    "build": "node ./build.js"
   },
   "author": "",
   "license": "ISC",

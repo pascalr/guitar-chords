@@ -1,4 +1,10 @@
-const { exec } = require("child_process");
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { exec } from "child_process";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 let songs = fs.readdirSync(path.join(__dirname, 'views', 'chords'));
 
@@ -7,7 +13,7 @@ let pages = [
 ]
 
 songs.forEach(song => {
-  let name = encodeURI(song)ncodeURI(song)
+  let name = encodeURI(song)
   pages.push({url: '/c/'+name, out: '/docs/'+name+'.html'})
 })
 

@@ -1,9 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="<%- locale %>">
   <head>
     <%- include('partials/head') %>
   </head>
   <body>
+    <%- include('partials/navbar') %>
+    <div style='max-height: 100vh; overflow: hidden;'>
+      <img src='/guitar_background.jpg' style='width: 100vw;'></img>
+    </div>
+    <div class='trunk'>
+      <ul>
+        <% songs.forEach(song => { %>
+          <li><a href='/c/<%- encodeURIComponent(song) %>'><%- song %></a></li>
+        <% }) %>
+      </ul>
+    </div>
     <%- include('partials/footer') %>
   </body>
 </html>

@@ -12,19 +12,38 @@ const debug = debugModule('todos:server');
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+let songs = fs.readdirSync(path.join(__dirname, 'views', 'chords'));
+
 var app = express();
 
 // view engine setup
-app.set('views', path.join(path.join(__dirname, '..'), 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.locals.locale = 'en'
+app.locals.songs = songs
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res, next) {
   res.render('index')
+})
+
+app.get('/c/:song', function(req, res, next) {
+  // FIXME: Unsafe, but anyway this website is never meant to be showed live, only cached.
+  fs.readFile(path.join('views', 'chords', req.params.song), 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+      next('Error reading song file...')
+    } else {
+      res.locals.title = req.params.song
+      res.locals.song = data
+      res.render('song')
+    }
+  });
 })
 
 // catch 404 and forward to error handler
@@ -35,25 +54,17 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
 
-  //if (req.app.get('env') === 'development') {
-  if (process.env.NODE_ENV == "development") {
-
-    if (typeof err === 'string') {
-      res.locals.message = err;
-      res.locals.error = {};
-    } else {
-      res.locals.message = err.message;
-      res.locals.error = err;
-    }
-
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error_dev');
-
+  if (typeof err === 'string') {
+    res.locals.message = err;
+    res.locals.error = {};
   } else {
-    console.log('ERROR', err)
-    res.redirect('/error');
+    res.locals.message = err.message;
+    res.locals.error = err;
   }
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 var port = normalizePort(process.env.PORT || '3000');

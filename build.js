@@ -13,6 +13,7 @@ const __dirname = path.dirname(__filename);
 
 let rootDir = path.join(__dirname, 'docs')
 if (fs.existsSync(rootDir)) {
+  console.log('Removing previous docs...')
   fs.rmSync(rootDir, {recursive: true})
 }
 

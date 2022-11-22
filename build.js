@@ -4,9 +4,14 @@ import fetch from 'node-fetch';
 import { fileURLToPath } from 'url';
 import { exec } from "child_process";
 import { parse } from 'node-html-parser';
+import {createWriteStream} from 'node:fs';
+import {pipeline} from 'node:stream';
+import {promisify} from 'node:util'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+fs.rmSync(path.join(__dirname, 'docs'), {recursive: true})
 
 let songs = fs.readdirSync(path.join(__dirname, 'views', 'chords'));
 
@@ -18,7 +23,7 @@ let pages = [
 
 songs.forEach(song => {
   let name = encodeURI(song)
-  pages.push({url: '/c/'+name, out: './docs/c/'+name+'/index.html'})
+  pages.push({url: '/c/'+name, out: './docs/c/'+song+'/index.html'})
 })
 
   //full = File.join(OUT_DIR, _relative_path(path))
@@ -33,13 +38,15 @@ let dependencies = []
 //  base = link.start_with?('/') ? link[1..-1] : link
 //  return depth == 0 ? base : '../'*depth+base
 //end
-const convertLink = (attr) => (elem) => {
+const convertLink = (url, attr) => (elem) => {
   let link = elem.getAttribute(attr)
   dependencies.push(link)
-  //if (link == '/') {return ''}
-  let base = link.startsWith('/') ? link.slice(1) : link
-  let depth = base.split('/').length-1
-  elem.setAttribute(attr, depth <= 1 ? './'+base : '../'.repeat(depth)+base)
+  //if (link == '/') {
+  //} else {
+    let depth = url.split('/').length-1
+    let base = link.startsWith('/') ? link.slice(1) : link
+    elem.setAttribute(attr, depth <= 1 ? './'+base : '../'.repeat(depth)+base)
+  //}
 }
 
 async function fetchText(url) {
@@ -50,13 +57,17 @@ async function fetchText(url) {
   return text
 }
 
-async function save(text, out) {
+function ensureDirectoryExist(out) {
 
   let dir = path.dirname(out)
   if (!fs.existsSync(dir)){
     fs.mkdirSync(dir, { recursive: true });
   }
+}
 
+async function save(text, out) {
+
+  ensureDirectoryExist(out)
   await fs.writeFile(out, text, function (err) {
     if (err) return console.log(err);
   })
@@ -64,8 +75,13 @@ async function save(text, out) {
 }
 
 async function download(url, out) {
-  let text = await fetchText(url)
-  await save(text, out)
+  //let text = await fetchText(url)
+  //await save(text, out)
+  ensureDirectoryExist(out)
+  const streamPipeline = promisify(pipeline);
+  const response = await fetch('http://localhost:3000'+url);
+  if (!response.ok) throw new Error(`unexpected response ${response.statusText}`);
+  await streamPipeline(response.body, createWriteStream(out));
 }
 
 for (let i = 0; i < pages.length; i++) {
@@ -75,16 +91,16 @@ for (let i = 0; i < pages.length; i++) {
   let root = parse(text)
 
   let links = root.querySelectorAll('a') || []
-  links.forEach(convertLink('href'))
+  links.forEach(convertLink(page.url, 'href'))
   
   let images = root.querySelectorAll('img') || []
-  images.forEach(convertLink('src'))
+  images.forEach(convertLink(page.url, 'src'))
 
   let css = root.querySelectorAll('link') || []
-  css.forEach(convertLink('href'))
+  css.forEach(convertLink(page.url, 'href'))
 
   let videos = root.querySelectorAll('video') || []
-  videos.forEach(convertLink('src'))
+  videos.forEach(convertLink(page.url, 'src'))
 
 //  scripts = doc.css 'script'
 //  scripts.each do |script|

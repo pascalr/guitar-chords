@@ -61,7 +61,7 @@ const Search = () => {
         {matching.map((song,i) => {
           let c = selected == i ? 'active' : undefined
           return <li key={song} className={c} ref={c ? selectedRef : undefined}>
-            <a href={"/c/"+encodeURI(song)}>{song}</a>
+            <a href={"./c/"+encodeURI(song)}>{song}</a>
           </li>
         })}
       </ul>

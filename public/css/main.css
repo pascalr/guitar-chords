@@ -27,3 +27,13 @@ input#cc4:checked ~ pre { column-count: 4; }
 pre {
   white-space: pre-wrap;
 }
+
+.song-list {
+  list-style-type: none;
+  padding-left: 1em;
+  line-height: 1.5em;
+}
+.song-list a {
+  color: #f9bc49;
+  text-decoration: none;
+}

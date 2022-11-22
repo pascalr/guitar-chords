@@ -3,6 +3,20 @@ import { createRoot } from 'react-dom/client';
 
 import { normalizeSearchText } from './utils';
 
+//function overwriteEventListener(elem, name, func) {
+//  elem.removeEventListener(name, func)
+//  return elem.addEventListener(name, func)
+//}
+
+const useEventListener = (id, evtName, func) => {
+
+  useEffect(() => {
+    let elem = document.getElementById(id)
+    elem.addEventListener(evtName, func)
+    return () => {elem.removeEventListener(evtName, func)}
+  }, [func])
+}
+
 const Search = () => {
 
   //// Search is the text shown in the input field
@@ -14,6 +28,19 @@ const Search = () => {
   const [songs,] = useState(gon.songs)
   const [matching, setMatching] = useState([])
 
+  useEventListener('search-input', 'keydown', (evt) => {
+    if (!evt) {return}
+    let key = evt.key
+    if (key == "ArrowDown") {select(selected >= matching.length-1 ? -1 : selected+1)}
+    else if (key == "ArrowUp") {select(selected < 0 ? matching.length-1 : selected-1)}
+    else if (key == "Enter") {
+
+      if (selected >= 0 && selected <= matching.length-1) {
+        window.location.href = '/c/'+encodeURI(matching[selected])
+      }
+    } else if (key == "Escape") { setSearch('') }
+  })
+
   useEffect(() => {
     if (selectedRef.current) { selectedRef.current.scrollIntoView(false) }
   }, [selected])
@@ -24,9 +51,6 @@ const Search = () => {
   }
 
   let select = (pos) => {
-    console.log('matching length', matching.length)
-    console.log('pos', pos)
-    console.log('val', matching[pos])
     setSelected(pos)
     setSearch(pos == -1 ? '' : matching[pos])
   }
@@ -41,30 +65,21 @@ const Search = () => {
       else {setMatching(songs.filter(s => ~normalizeSearchText(s).indexOf(term)))}
     })
 
-    let listener2 = elem.addEventListener('keydown', ({key}) => {
-      if (key == "ArrowDown") {select(selected >= matching.length-1 ? -1 : selected+1)}
-      else if (key == "ArrowUp") {select(selected < 0 ? matching.length-1 : selected-1)}
-      else if (key == "Enter") {
-
-        if (selected >= 0 && selected <= matching.length-1) {
-          window.location.href = '/c/'+encodeURI(matching[selected])
-        }
-      } else if (key == "Escape") { setSearch('') }
-    })
-
     return () => {
       elem.removeEventListener('input', listener1)
-      elem.removeEventListener('keydown', listener2)
     }
-  }, [selected, matching])
+  }, [])
 
   if (!matching?.length) {return null}
 
   return <>
     <div style={{width: '100%', height: 'calc(40vw * 2 / 3)', zIndex: '5', backgroundColor: 'black', opacity: '0.8', overflow: 'scroll'}}>
-      <ul>
-        {matching.map(song => {
-          return <li key={song}>{song}</li>
+      <ul className='song-list'>
+        {matching.map((song,i) => {
+          let c = selected == i ? 'active' : undefined
+          return <li key={song} className={c}>
+            <a href={"/c/"+encodeURI(song)}>{song}</a>
+          </li>
         })}
       </ul>
     </div>

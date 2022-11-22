@@ -14,10 +14,13 @@ const useEventListener = (id, evtName, func) => {
 
 const Search = () => {
 
+  const [term, setTerm] = useState('')
   const [selected, setSelected] = useState(-1)
   const selectedRef = useRef(null)
   const [songs,] = useState(gon.songs)
-  const [matching, setMatching] = useState([])
+      
+  let t = normalizeSearchText(term)
+  matching = !t ? [] : songs.filter(s => ~normalizeSearchText(s).indexOf(term))
 
   useEventListener('search-input', 'keydown', ({key}) => {
     if (key == "ArrowDown") {select(selected >= matching.length-1 ? -1 : selected+1)}
@@ -27,7 +30,7 @@ const Search = () => {
       if (selected >= 0 && selected <= matching.length-1) {
         window.location.href = '/c/'+encodeURI(matching[selected])
       }
-    } else if (key == "Escape") { setSearch('') }
+    } else if (key == "Escape") { setSearch(''); setTerm(''); setSelected(-1) }
   })
 
   useEffect(() => {
@@ -46,17 +49,8 @@ const Search = () => {
 
   useEffect(() => {
     let elem = document.getElementById('search-input')
-
-    let listener1 = elem.addEventListener('input', (e) => {
-      let term = normalizeSearchText(e.target.value)
-
-      if (!term) { setMatching([]) }
-      else {setMatching(songs.filter(s => ~normalizeSearchText(s).indexOf(term)))}
-    })
-
-    return () => {
-      elem.removeEventListener('input', listener1)
-    }
+    let l = elem.addEventListener('input', (e) => {setTerm(e.target.value)})
+    return () => {elem.removeEventListener('input', l)}
   }, [])
 
   if (!matching?.length) {return null}

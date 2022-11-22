@@ -11,7 +11,10 @@ import {promisify} from 'node:util'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-fs.rmSync(path.join(__dirname, 'docs'), {recursive: true})
+let rootDir = path.join(__dirname, 'docs')
+if (fs.existsSync(rootDir)) {
+  fs.rmSync(rootDir, {recursive: true})
+}
 
 let songs = fs.readdirSync(path.join(__dirname, 'views', 'chords'));
 
@@ -40,12 +43,10 @@ let dependencies = []
 //end
 const convertLink = (url, attr) => (elem) => {
   let link = elem.getAttribute(attr)
-  dependencies.push(link)
-  //if (link == '/') {
-  //} else {
-    let depth = url.split('/').length-1
-    let base = link.startsWith('/') ? link.slice(1) : link
-    elem.setAttribute(attr, depth <= 1 ? './'+base : '../'.repeat(depth)+base)
+  let depth = url.split('/').length-1
+  let base = link.startsWith('/') ? link.slice(1) : link
+  dependencies.push('/'+base)
+  elem.setAttribute(attr, depth <= 1 ? './'+base : '../'.repeat(depth)+base)
   //}
 }
 
@@ -102,10 +103,9 @@ for (let i = 0; i < pages.length; i++) {
   let videos = root.querySelectorAll('video') || []
   videos.forEach(convertLink(page.url, 'src'))
 
-//  scripts = doc.css 'script'
-//  scripts.each do |script|
-//    script['src'] = convert_link(script['src'], depth)
-//  end
+  let scripts = root.querySelectorAll('script[src]') || []
+  scripts.forEach(convertLink(page.url, 'src'))
+
   await save(root.toString(), page.out)
 }
 

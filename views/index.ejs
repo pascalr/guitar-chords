@@ -18,7 +18,7 @@
       <h1 style='padding-left: 0.5em;'>Song list</h1>
       <ul class='song-list'>
         <% songs.forEach(song => { %>
-          <li class='active'><a href="/c/<%- encodeURI(song) %>"><%- song %></a></li>
+          <li><a href="/c/<%- encodeURI(song) %>"><%- song %></a></li>
         <% }) %>
       </ul>
     </div>

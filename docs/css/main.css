@@ -4,6 +4,10 @@ body {
   color: #f9bc49;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .trunk {
   min-width: 230px;
   max-width: 800px;
@@ -22,4 +26,32 @@ input#cc4:checked ~ pre { column-count: 4; }
 
 pre {
   white-space: pre-wrap;
+}
+
+.song-list {
+  list-style-type: none;
+  padding-left: 0;
+  line-height: 1.5em;
+}
+.song-list li {
+  padding-left: 1em;
+}
+.song-list a {
+  color: #f9bc49;
+  text-decoration: none;
+}
+.song-list .active {
+  background-color: #9d0f0f !important;
+}
+
+#search-input {
+  background-color: #151414;
+  border: 1px solid gray;
+  padding: 0.5em;
+  color: white;
+  font-size: 1.2em;
+  border-radius: 1em;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
 }

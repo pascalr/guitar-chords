@@ -25,7 +25,7 @@ export async function enableLiveReload(app) {
     // Uses incremental compilation (see `chokidar.on`).
     incremental: true,
     // Removes whitespace, etc. depending on `NODE_ENV=...`.
-    minify: process.env.NODE_ENV === "production" || process.env.NODE_ENV === "prod",
+    minify: process.env.NODE_ENV === "production",
     // Bundles JavaScript to (see `entryPoints`).
     outdir: "public/build",
     loader: {

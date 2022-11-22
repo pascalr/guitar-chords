@@ -4,6 +4,10 @@ body {
   color: #f9bc49;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .trunk {
   min-width: 230px;
   max-width: 800px;

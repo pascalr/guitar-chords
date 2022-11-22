@@ -23,54 +23,79 @@ songs.forEach(song => {
   //FileUtils.mkdir_p(full) unless File.directory?(full)
   //system("wget #{_fullpath(path)} -q -O #{full}/index.html") # -q => quiet; -O => output file name; -k => relative file path
 
-function convertLink() {
+let fetched = []
+let dependencies = []
+
+//def convert_link(link, depth)
+//  $dependencies << link
+//  base = link.start_with?('/') ? link[1..-1] : link
+//  return depth == 0 ? base : '../'*depth+base
+//end
+const convertLink = (attr) => (elem) => {
+  let link = elem.getAttribute(attr)
+  dependencies.push(link)
+  let base = link.startsWith('/') ? link.slice(1) : link
+  let depth = base.split('/').length-1
+  elem.setAttribute(attr, depth == 0 ? './'+base : '../'.repeat(depth)+base)
 }
 
-let dependencies = []
+async function fetchText(url) {
+
+  let p = await fetch('http://localhost:3000'+url)
+  let text = await p.text()
+  fetched.push(url)
+  return text
+}
+
+async function save(text, out) {
+
+  await fs.writeFile(out, text, function (err) {
+    if (err) return console.log(err);
+  })
+  return text
+}
+
+async function download(url, out) {
+  let text = await fetchText(url)
+  await save(text, out)
+}
 
 for (let i = 0; i < pages.length; i++) {
   let page = pages[i]
-  let p = await fetch('http://localhost:3000'+page.url)
-  let text = await p.text()
 
+  let text = await fetchText(page.url)
   let root = parse(text)
-  let links = root.querySelectorAll('a') || []
-  links.forEach(elem => {
-    dependencies.push(elem.getAttribute('href'))
-  })
 
-//def convert_html_file_links(path)
-//  rel = File.dirname(path)[(OUT_DIR.length+1)..-1]
-//  depth = (rel.nil? || rel == '') ? 0 : rel.count('/')+1
-//  html = File.read(path)
-//  doc = Nokogiri::HTML5(html)
-//  links = doc.css 'a'
-//  links.each do |link|
-//    link['href'] = convert_link(link['href'], depth)
-//  end
-//  links = doc.css 'link'
-//  links.each do |link|
-//    link['href'] = convert_link(link['href'], depth)
-//  end
-//  imgs = doc.css 'img'
-//  imgs.each do |img|
-//    img['src'] = convert_link(img['src'], depth)
-//  end
-//  videos = doc.css 'video'
-//  videos.each do |video|
-//    video['src'] = convert_link(video['src'], depth)
-//  end
+  let links = root.querySelectorAll('a') || []
+  links.forEach(convertLink('href'))
+  
+  let images = root.querySelectorAll('img') || []
+  images.forEach(convertLink('src'))
+
+  let css = root.querySelectorAll('link') || []
+  css.forEach(convertLink('href'))
+
+  let videos = root.querySelectorAll('video') || []
+  videos.forEach(convertLink('src'))
+
 //  scripts = doc.css 'script'
 //  scripts.each do |script|
 //    script['src'] = convert_link(script['src'], depth)
 //  end
-//  File.write(path, doc.to_html)
-//end
-
-  await fs.writeFile(page.out, text, function (err) {
-    if (err) return console.log(err);
-  })
+  await save(root.toString(), page.out)
 }
 
-dependencies = [...new Set(dependencies)]
-console.log(dependencies)
+// https://stackoverflow.com/questions/39721276/remove-set-of-values-in-an-existing-set
+function removeAll(originalSet, toBeRemovedSet) {
+  [...toBeRemovedSet].forEach(function(v) {
+    originalSet.delete(v);
+  });
+  return originalSet
+}
+
+let missings = [...removeAll(new Set(dependencies), fetched)]
+console.log('missings', missings)
+
+missings.forEach(missing => {
+  download(missing, './docs'+missing)
+})

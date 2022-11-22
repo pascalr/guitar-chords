@@ -28,7 +28,7 @@ const Search = () => {
     else if (key == "Enter") {
 
       if (selected >= 0 && selected <= matching.length-1) {
-        window.location.href = '/c/'+encodeURI(matching[selected])
+        document.querySelector('.song-list li.active > a').click()
       }
     } else if (key == "Escape") { setSearch(''); setTerm(''); setSelected(-1) }
   })

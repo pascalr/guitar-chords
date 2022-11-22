@@ -19,9 +19,7 @@ const Search = () => {
   const [songs,] = useState(gon.songs)
   const [matching, setMatching] = useState([])
 
-  useEventListener('search-input', 'keydown', (evt) => {
-    if (!evt) {return}
-    let key = evt.key
+  useEventListener('search-input', 'keydown', ({key}) => {
     if (key == "ArrowDown") {select(selected >= matching.length-1 ? -1 : selected+1)}
     else if (key == "ArrowUp") {select(selected < 0 ? matching.length-1 : selected-1)}
     else if (key == "Enter") {
@@ -64,7 +62,7 @@ const Search = () => {
   if (!matching?.length) {return null}
 
   return <>
-    <div style={{width: '100%', height: 'calc(40vw * 2 / 3)', zIndex: '5', backgroundColor: 'black', opacity: '0.8', overflow: 'scroll'}}>
+    <div style={{width: '100%', height: 'calc(40vw * 2 / 3)', zIndex: '5', backgroundColor: 'rgba(0,0,0,0.8)', overflow: 'scroll'}}>
       <ul className='song-list'>
         {matching.map((song,i) => {
           let c = selected == i ? 'active' : undefined

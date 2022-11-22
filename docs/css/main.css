@@ -45,7 +45,7 @@ pre {
 }
 
 #search-input {
-  background-color: #151414;
+  background-color: rgba(21, 20, 20, 0.9);
   border: 1px solid gray;
   padding: 0.5em;
   color: white;
@@ -53,5 +53,4 @@ pre {
   border-radius: 1em;
   width: 100%;
   height: 100%;
-  opacity: 0.9;
 }

@@ -10,13 +10,15 @@ const __dirname = path.dirname(__filename);
 
 let songs = fs.readdirSync(path.join(__dirname, 'views', 'chords'));
 
+// TODO: Delete the docs folder
+
 let pages = [
   {url: '/', out: './docs/index.html'},
 ]
 
 songs.forEach(song => {
   let name = encodeURI(song)
-  pages.push({url: '/c/'+name, out: './docs/c/'+name+'.html'})
+  pages.push({url: '/c/'+name, out: './docs/c/'+name+'/index.html'})
 })
 
   //full = File.join(OUT_DIR, _relative_path(path))
@@ -34,9 +36,10 @@ let dependencies = []
 const convertLink = (attr) => (elem) => {
   let link = elem.getAttribute(attr)
   dependencies.push(link)
+  //if (link == '/') {return ''}
   let base = link.startsWith('/') ? link.slice(1) : link
   let depth = base.split('/').length-1
-  elem.setAttribute(attr, depth == 0 ? './'+base : '../'.repeat(depth)+base)
+  elem.setAttribute(attr, depth <= 1 ? './'+base : '../'.repeat(depth)+base)
 }
 
 async function fetchText(url) {
@@ -48,6 +51,11 @@ async function fetchText(url) {
 }
 
 async function save(text, out) {
+
+  let dir = path.dirname(out)
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir, { recursive: true });
+  }
 
   await fs.writeFile(out, text, function (err) {
     if (err) return console.log(err);

@@ -19,8 +19,6 @@ if (fs.existsSync(rootDir)) {
 
 let songs = fs.readdirSync(path.join(__dirname, 'views', 'chords'));
 
-// TODO: Delete the docs folder
-
 let pages = [
   {url: '/', out: './docs/index.html'},
 ]
@@ -30,20 +28,17 @@ songs.forEach(song => {
   pages.push({url: '/c/'+name, out: './docs/c/'+song+'/index.html'})
 })
 
-  //full = File.join(OUT_DIR, _relative_path(path))
-  //FileUtils.mkdir_p(full) unless File.directory?(full)
-  //system("wget #{_fullpath(path)} -q -O #{full}/index.html") # -q => quiet; -O => output file name; -k => relative file path
-
 let fetched = []
 let dependencies = []
 
-//def convert_link(link, depth)
-//  $dependencies << link
-//  base = link.start_with?('/') ? link[1..-1] : link
-//  return depth == 0 ? base : '../'*depth+base
-//end
+/**
+ * Convert links to relative paths so it works on github pages.
+ */
 const convertLink = (url, attr) => (elem) => {
+  
   let link = elem.getAttribute(attr)
+  // Don't convert absolute links
+  if (link.startsWith('http')) {return;}
   let depth = url.split('/').length-1
   let base = link.startsWith('/') ? link.slice(1) : link
   dependencies.push('/'+base)

@@ -3,11 +3,6 @@ import { createRoot } from 'react-dom/client';
 
 import { normalizeSearchText } from './utils';
 
-//function overwriteEventListener(elem, name, func) {
-//  elem.removeEventListener(name, func)
-//  return elem.addEventListener(name, func)
-//}
-
 const useEventListener = (id, evtName, func) => {
 
   useEffect(() => {
@@ -19,10 +14,6 @@ const useEventListener = (id, evtName, func) => {
 
 const Search = () => {
 
-  //// Search is the text shown in the input field
-  //// Term is the term currently used to filter the search
-  //const [search, setSearch] = useState('')
-  //const [term, setTerm] = useState('')
   const [selected, setSelected] = useState(-1)
   const selectedRef = useRef(null)
   const [songs,] = useState(gon.songs)
@@ -77,7 +68,7 @@ const Search = () => {
       <ul className='song-list'>
         {matching.map((song,i) => {
           let c = selected == i ? 'active' : undefined
-          return <li key={song} className={c}>
+          return <li key={song} className={c} ref={c ? selectedRef : undefined}>
             <a href={"/c/"+encodeURI(song)}>{song}</a>
           </li>
         })}

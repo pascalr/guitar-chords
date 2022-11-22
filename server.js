@@ -9,12 +9,16 @@ import fs from 'fs';
 const debug = debugModule('todos:server');
 //import _ from 'lodash';
 
+import { enableLiveReload } from './src/livereload.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 let songs = fs.readdirSync(path.join(__dirname, 'views', 'chords'));
 
 var app = express();
+
+enableLiveReload(app)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res, next) {
+  app.locals.gon = {songs}
   res.render('index')
 })
 

@@ -9,7 +9,7 @@
     "url": "https://github.com/pascalr/guitar-chords.git"
   },
   "scripts": {
-    "dev": "nodemon ./server.js",
+    "dev": "node ./server.js",
     "build": "node ./build.js"
   },
   "author": "",
@@ -19,10 +19,16 @@
   },
   "homepage": "https://github.com/pascalr/guitar-chords#readme",
   "dependencies": {
+    "chokidar": "^3.5.3",
+    "connect-livereload": "^0.6.1",
     "ejs": "^3.1.8",
+    "esbuild": "^0.15.15",
     "express": "^4.18.2",
+    "livereload": "^0.9.3",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.0",
-    "node-html-parser": "^6.1.4"
+    "node-html-parser": "^6.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

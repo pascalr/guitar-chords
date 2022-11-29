@@ -20,7 +20,7 @@ const Search = () => {
   const [songs,] = useState(gon.songs)
       
   let t = normalizeSearchText(term)
-  matching = !t ? [] : songs.filter(s => ~normalizeSearchText(s).indexOf(term))
+  matching = !t ? [] : songs.filter(s => ~normalizeSearchText(s).indexOf(t))
 
   useEventListener('search-input', 'keydown', ({key}) => {
     if (key == "ArrowDown") {select(selected >= matching.length-1 ? -1 : selected+1)}

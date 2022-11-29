@@ -3,7 +3,9 @@
 A minimilastic website to store personal guitar chords sheets.
 
 To have your own website, just clone this repository, add your songs inside views/chords, then run,
-    npm run build
+
+`npm run build`
+
 Add, commit and push to your own github repository. Enable Github Pages and it should work!
 
 ## Features
@@ -17,5 +19,5 @@ Add, commit and push to your own github repository. Enable Github Pages and it s
 
 ## CREDITS
 
-Source code: Pascal Rainville (https://pascalr.github.io/cv/)
-Guitar image: Jefferson Santos (https://unsplash.com/photos/fCEJGBzAkrU)
+- Source code: Pascal Rainville (https://pascalr.github.io/cv/)
+- Guitar image: Jefferson Santos (https://unsplash.com/photos/fCEJGBzAkrU)

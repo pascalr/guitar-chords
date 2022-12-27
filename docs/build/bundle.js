@@ -38,6 +38,22 @@
   function element(name) {
     return document.createElement(name);
   }
+  function text(data) {
+    return document.createTextNode(data);
+  }
+  function space() {
+    return text(" ");
+  }
+  function listen(node, event, handler, options) {
+    node.addEventListener(event, handler, options);
+    return () => node.removeEventListener(event, handler, options);
+  }
+  function attr(node, attribute, value) {
+    if (value == null)
+      node.removeAttribute(attribute);
+    else if (node.getAttribute(attribute) !== value)
+      node.setAttribute(attribute, value);
+  }
   function children(element2) {
     return Array.from(element2.childNodes);
   }
@@ -143,7 +159,7 @@
     }
     component.$$.dirty[i / 31 | 0] |= 1 << i % 31;
   }
-  function init(component, options, instance, create_fragment2, not_equal, props, append_styles, dirty = [-1]) {
+  function init(component, options, instance2, create_fragment3, not_equal, props, append_styles, dirty = [-1]) {
     const parent_component = current_component;
     set_current_component(component);
     const $$ = component.$$ = {
@@ -166,7 +182,7 @@
     };
     append_styles && append_styles($$.root);
     let ready = false;
-    $$.ctx = instance ? instance(component, options.props || {}, (i, ret, ...rest) => {
+    $$.ctx = instance2 ? instance2(component, options.props || {}, (i, ret, ...rest) => {
       const value = rest.length ? rest[0] : ret;
       if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
         if (!$$.skip_bound && $$.bound[i])
@@ -179,7 +195,7 @@
     $$.update();
     ready = true;
     run_all($$.before_update);
-    $$.fragment = create_fragment2 ? create_fragment2($$.ctx) : false;
+    $$.fragment = create_fragment3 ? create_fragment3($$.ctx) : false;
     if (options.target) {
       if (options.hydrate) {
         start_hydrating();
@@ -211,8 +227,8 @@
           this.appendChild(this.$$.slotted[key]);
         }
       }
-      attributeChangedCallback(attr, _oldValue, newValue) {
-        this[attr] = newValue;
+      attributeChangedCallback(attr2, _oldValue, newValue) {
+        this[attr2] = newValue;
       }
       disconnectedCallback() {
         run_all(this.$$.on_disconnect);
@@ -296,6 +312,170 @@
   };
   var metronome_default = Metronome;
 
+  // src/svelte/guitar.svelte
+  function create_fragment2(ctx) {
+    let h1;
+    let t1;
+    let button0;
+    let t3;
+    let button1;
+    let t5;
+    let button2;
+    let t7;
+    let button3;
+    let t9;
+    let button4;
+    let t11;
+    let button5;
+    let mounted;
+    let dispose;
+    return {
+      c() {
+        h1 = element("h1");
+        h1.textContent = "Guitar";
+        t1 = space();
+        button0 = element("button");
+        button0.textContent = "E";
+        t3 = space();
+        button1 = element("button");
+        button1.textContent = "A";
+        t5 = space();
+        button2 = element("button");
+        button2.textContent = "D";
+        t7 = space();
+        button3 = element("button");
+        button3.textContent = "G";
+        t9 = space();
+        button4 = element("button");
+        button4.textContent = "B";
+        t11 = space();
+        button5 = element("button");
+        button5.textContent = "E";
+        attr(button0, "type", "button");
+        attr(button1, "type", "button");
+        attr(button2, "type", "button");
+        attr(button3, "type", "button");
+        attr(button4, "type", "button");
+        attr(button5, "type", "button");
+      },
+      m(target, anchor) {
+        insert(target, h1, anchor);
+        insert(target, t1, anchor);
+        insert(target, button0, anchor);
+        insert(target, t3, anchor);
+        insert(target, button1, anchor);
+        insert(target, t5, anchor);
+        insert(target, button2, anchor);
+        insert(target, t7, anchor);
+        insert(target, button3, anchor);
+        insert(target, t9, anchor);
+        insert(target, button4, anchor);
+        insert(target, t11, anchor);
+        insert(target, button5, anchor);
+        if (!mounted) {
+          dispose = [
+            listen(button0, "click", ctx[1]),
+            listen(button1, "click", ctx[2]),
+            listen(button2, "click", ctx[3]),
+            listen(button3, "click", ctx[4]),
+            listen(button4, "click", ctx[5]),
+            listen(button5, "click", ctx[6])
+          ];
+          mounted = true;
+        }
+      },
+      p: noop,
+      i: noop,
+      o: noop,
+      d(detaching) {
+        if (detaching)
+          detach(h1);
+        if (detaching)
+          detach(t1);
+        if (detaching)
+          detach(button0);
+        if (detaching)
+          detach(t3);
+        if (detaching)
+          detach(button1);
+        if (detaching)
+          detach(t5);
+        if (detaching)
+          detach(button2);
+        if (detaching)
+          detach(t7);
+        if (detaching)
+          detach(button3);
+        if (detaching)
+          detach(t9);
+        if (detaching)
+          detach(button4);
+        if (detaching)
+          detach(t11);
+        if (detaching)
+          detach(button5);
+        mounted = false;
+        run_all(dispose);
+      }
+    };
+  }
+  function freqForNote(str) {
+    console.log("freqForNote", str);
+    let A0 = 440 / 16;
+    str = str.toUpperCase();
+    let letter = str[0];
+    let map = {
+      A: 0,
+      B: 2,
+      C: 3,
+      D: 5,
+      E: 7,
+      F: 8,
+      G: 10
+    };
+    let mod = str[1] == "B" ? -1 : str[1] == "#" ? 1 : 0;
+    let nb = str.at(-1);
+    let base = Math.pow(2, 1 / 12);
+    let exp = nb * 12 + map[letter] + mod;
+    let freq = A0 * Math.pow(base, exp);
+    return freq;
+  }
+  function instance($$self) {
+    let context = new AudioContext();
+    function note(str) {
+      console.log("note", str);
+      let o = context.createOscillator();
+      let g = context.createGain();
+      o.connect(g);
+      g.connect(context.destination);
+      o.frequency.value = freqForNote(str);
+      o.start(0);
+      g.gain.exponentialRampToValueAtTime(1e-5, context.currentTime + 5);
+    }
+    const click_handler = () => note("E2");
+    const click_handler_1 = () => note("A3");
+    const click_handler_2 = () => note("D3");
+    const click_handler_3 = () => note("G3");
+    const click_handler_4 = () => note("B4");
+    const click_handler_5 = () => note("E4");
+    return [
+      note,
+      click_handler,
+      click_handler_1,
+      click_handler_2,
+      click_handler_3,
+      click_handler_4,
+      click_handler_5
+    ];
+  }
+  var Guitar = class extends SvelteComponent {
+    constructor(options) {
+      super();
+      init(this, options, instance, create_fragment2, safe_not_equal, {});
+    }
+  };
+  var guitar_default = Guitar;
+
   // src/svelte/index.js
   var metronome = new metronome_default({
     target: document.getElementById("metronome"),
@@ -303,5 +483,10 @@
       name: "world"
     }
   });
-  var svelte_default = metronome;
+  var guitar = new guitar_default({
+    target: document.getElementById("guitar"),
+    props: {
+      name: "world"
+    }
+  });
 })();

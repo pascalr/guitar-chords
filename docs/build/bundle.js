@@ -312,6 +312,35 @@
   };
   var metronome_default = Metronome;
 
+  // src/music.js
+  var context = new AudioContext();
+  function note(str) {
+    console.log("note", str);
+    let o = context.createOscillator();
+    let g = context.createGain();
+    o.connect(g);
+    g.connect(context.destination);
+    o.frequency.value = freqForNote(str);
+    o.start(0);
+    g.gain.exponentialRampToValueAtTime(
+      1e-5,
+      context.currentTime + 5
+    );
+  }
+  function freqForNote(str) {
+    console.log("freqForNote", str);
+    let A0 = 440 / 16;
+    str = str.toUpperCase();
+    let letter = str[0];
+    let map = { A: 0, B: 2, C: 3, D: 5, E: 7, F: 8, G: 10 };
+    let mod = str[1] == "B" ? -1 : str[1] == "#" ? 1 : 0;
+    let nb = str.at(-1);
+    let base = Math.pow(2, 1 / 12);
+    let exp = nb * 12 + map[letter] + mod;
+    let freq = A0 * Math.pow(base, exp);
+    return freq;
+  }
+
   // src/svelte/guitar.svelte
   function create_fragment2(ctx) {
     let h1;
@@ -374,12 +403,12 @@
         insert(target, button5, anchor);
         if (!mounted) {
           dispose = [
-            listen(button0, "click", ctx[1]),
-            listen(button1, "click", ctx[2]),
-            listen(button2, "click", ctx[3]),
-            listen(button3, "click", ctx[4]),
-            listen(button4, "click", ctx[5]),
-            listen(button5, "click", ctx[6])
+            listen(button0, "click", ctx[0]),
+            listen(button1, "click", ctx[1]),
+            listen(button2, "click", ctx[2]),
+            listen(button3, "click", ctx[3]),
+            listen(button4, "click", ctx[4]),
+            listen(button5, "click", ctx[5])
           ];
           mounted = true;
         }
@@ -419,39 +448,7 @@
       }
     };
   }
-  function freqForNote(str) {
-    console.log("freqForNote", str);
-    let A0 = 440 / 16;
-    str = str.toUpperCase();
-    let letter = str[0];
-    let map = {
-      A: 0,
-      B: 2,
-      C: 3,
-      D: 5,
-      E: 7,
-      F: 8,
-      G: 10
-    };
-    let mod = str[1] == "B" ? -1 : str[1] == "#" ? 1 : 0;
-    let nb = str.at(-1);
-    let base = Math.pow(2, 1 / 12);
-    let exp = nb * 12 + map[letter] + mod;
-    let freq = A0 * Math.pow(base, exp);
-    return freq;
-  }
   function instance($$self) {
-    let context = new AudioContext();
-    function note(str) {
-      console.log("note", str);
-      let o = context.createOscillator();
-      let g = context.createGain();
-      o.connect(g);
-      g.connect(context.destination);
-      o.frequency.value = freqForNote(str);
-      o.start(0);
-      g.gain.exponentialRampToValueAtTime(1e-5, context.currentTime + 5);
-    }
     const click_handler = () => note("E2");
     const click_handler_1 = () => note("A3");
     const click_handler_2 = () => note("D3");
@@ -459,7 +456,6 @@
     const click_handler_4 = () => note("B4");
     const click_handler_5 = () => note("E4");
     return [
-      note,
       click_handler,
       click_handler_1,
       click_handler_2,

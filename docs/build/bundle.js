@@ -159,7 +159,7 @@
     }
     component.$$.dirty[i / 31 | 0] |= 1 << i % 31;
   }
-  function init(component, options, instance2, create_fragment3, not_equal, props, append_styles, dirty = [-1]) {
+  function init(component, options, instance3, create_fragment3, not_equal, props, append_styles, dirty = [-1]) {
     const parent_component = current_component;
     set_current_component(component);
     const $$ = component.$$ = {
@@ -182,7 +182,7 @@
     };
     append_styles && append_styles($$.root);
     let ready = false;
-    $$.ctx = instance2 ? instance2(component, options.props || {}, (i, ret, ...rest) => {
+    $$.ctx = instance3 ? instance3(component, options.props || {}, (i, ret, ...rest) => {
       const value = rest.length ? rest[0] : ret;
       if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
         if (!$$.skip_bound && $$.bound[i])
@@ -284,37 +284,9 @@
     }
   };
 
-  // src/svelte/metronome.svelte
-  function create_fragment(ctx) {
-    let h1;
-    return {
-      c() {
-        h1 = element("h1");
-        h1.textContent = "Metronome";
-      },
-      m(target, anchor) {
-        insert(target, h1, anchor);
-      },
-      p: noop,
-      i: noop,
-      o: noop,
-      d(detaching) {
-        if (detaching)
-          detach(h1);
-      }
-    };
-  }
-  var Metronome = class extends SvelteComponent {
-    constructor(options) {
-      super();
-      init(this, options, null, create_fragment, safe_not_equal, {});
-    }
-  };
-  var metronome_default = Metronome;
-
   // src/music.js
   var context = new AudioContext();
-  function note(str) {
+  function note(str, length = 5) {
     console.log("note", str);
     let o = context.createOscillator();
     let g = context.createGain();
@@ -324,7 +296,7 @@
     o.start(0);
     g.gain.exponentialRampToValueAtTime(
       1e-5,
-      context.currentTime + 5
+      context.currentTime + length
     );
   }
   function freqForNote(str) {
@@ -340,6 +312,89 @@
     let freq = A0 * Math.pow(base, exp);
     return freq;
   }
+
+  // src/svelte/metronome.svelte
+  function create_fragment(ctx) {
+    let h1;
+    let t1;
+    let button0;
+    let t3;
+    let button1;
+    let mounted;
+    let dispose;
+    return {
+      c() {
+        h1 = element("h1");
+        h1.textContent = "Metronome";
+        t1 = space();
+        button0 = element("button");
+        button0.textContent = "Start";
+        t3 = space();
+        button1 = element("button");
+        button1.textContent = "Stop";
+        attr(button0, "type", "button");
+        attr(button1, "type", "button");
+      },
+      m(target, anchor) {
+        insert(target, h1, anchor);
+        insert(target, t1, anchor);
+        insert(target, button0, anchor);
+        insert(target, t3, anchor);
+        insert(target, button1, anchor);
+        if (!mounted) {
+          dispose = [
+            listen(button0, "click", ctx[2]),
+            listen(button1, "click", ctx[3])
+          ];
+          mounted = true;
+        }
+      },
+      p: noop,
+      i: noop,
+      o: noop,
+      d(detaching) {
+        if (detaching)
+          detach(h1);
+        if (detaching)
+          detach(t1);
+        if (detaching)
+          detach(button0);
+        if (detaching)
+          detach(t3);
+        if (detaching)
+          detach(button1);
+        mounted = false;
+        run_all(dispose);
+      }
+    };
+  }
+  function instance($$self, $$props, $$invalidate) {
+    let { interval = null } = $$props;
+    let { delayMs = 1e3 } = $$props;
+    const click_handler = () => {
+      if (!interval) {
+        $$invalidate(0, interval = setInterval(() => note("A4", 0.5), delayMs));
+      }
+    };
+    const click_handler_1 = () => {
+      clearInterval(interval);
+      $$invalidate(0, interval = null);
+    };
+    $$self.$$set = ($$props2) => {
+      if ("interval" in $$props2)
+        $$invalidate(0, interval = $$props2.interval);
+      if ("delayMs" in $$props2)
+        $$invalidate(1, delayMs = $$props2.delayMs);
+    };
+    return [interval, delayMs, click_handler, click_handler_1];
+  }
+  var Metronome = class extends SvelteComponent {
+    constructor(options) {
+      super();
+      init(this, options, instance, create_fragment, safe_not_equal, { interval: 0, delayMs: 1 });
+    }
+  };
+  var metronome_default = Metronome;
 
   // src/svelte/guitar.svelte
   function create_fragment2(ctx) {
@@ -448,7 +503,7 @@
       }
     };
   }
-  function instance($$self) {
+  function instance2($$self) {
     const click_handler = () => note("E2");
     const click_handler_1 = () => note("A3");
     const click_handler_2 = () => note("D3");
@@ -467,7 +522,7 @@
   var Guitar = class extends SvelteComponent {
     constructor(options) {
       super();
-      init(this, options, instance, create_fragment2, safe_not_equal, {});
+      init(this, options, instance2, create_fragment2, safe_not_equal, {});
     }
   };
   var guitar_default = Guitar;

@@ -1,6 +1,6 @@
 var context = new AudioContext()
 
-export function note(str) {
+export function note(str, length=5) {
   console.log('note', str)
   let o = context.createOscillator()
   let g = context.createGain()
@@ -10,7 +10,7 @@ export function note(str) {
   o.start(0)
   //o.type = 'sine' // square, triangle, sawtooth
   g.gain.exponentialRampToValueAtTime(
-    0.00001, context.currentTime + 5
+    0.00001, context.currentTime + length
   )
 }
 

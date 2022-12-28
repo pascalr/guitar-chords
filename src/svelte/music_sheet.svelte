@@ -15,7 +15,7 @@ onMount(() => {
   renderer.resize(500, 500);
   const context = renderer.getContext();
   context.setFont('Arial', 10);
-  let color = 'blue';
+  let color = 'yellow';
   context.setStrokeStyle(color);
   context.setFillStyle(color);
   

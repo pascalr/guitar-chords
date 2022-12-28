@@ -30774,7 +30774,7 @@
     return {
       c() {
         div = element("div");
-        attr(div, "id", "test");
+        attr(div, "id", "music-sheet-2");
       },
       m(target, anchor) {
         insert(target, div, anchor);
@@ -30789,26 +30789,16 @@
     };
   }
   function instance4($$self) {
-    console.log("here");
     onMount(() => {
-      console.log("there");
-      const { Factory: Factory2, EasyScore: EasyScore2, System: System2 } = Vex.Flow;
-      const vf = new Factory2({
-        renderer: {
-          elementId: "test",
-          width: 500,
-          height: 200
-        }
-      });
-      const score = vf.EasyScore();
-      const system = vf.System();
-      system.addStave({
-        voices: [
-          score.voice(score.notes("C#5/q, B4, A4, G#4", { stem: "up" })),
-          score.voice(score.notes("C#4/h, C#4", { stem: "down" }))
-        ]
-      }).addClef("treble").addTimeSignature("4/4");
-      vf.draw();
+      const { Renderer: Renderer2, Stave: Stave2 } = Vex.Flow;
+      const div = document.getElementById("music-sheet-2");
+      const renderer = new Renderer2(div, Renderer2.Backends.SVG);
+      renderer.resize(500, 500);
+      const context2 = renderer.getContext();
+      context2.setFont("Arial", 10);
+      const stave = new Stave2(10, 40, 400);
+      stave.addClef("treble").addTimeSignature("4/4");
+      stave.setContext(context2).draw();
     });
     return [];
   }

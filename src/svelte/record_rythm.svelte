@@ -17,7 +17,6 @@ function tap(e) {
   e.preventDefault()
   if (first && taps.length - releases.length < 1) {
     let now = Date.now()
-    console.log('tap', now-first)
     taps.push(now-first)
   }
 }
@@ -30,7 +29,6 @@ function calcIntervals() {
   for (let i = 1; i < taps.length; i++) {
     intervals.push(taps[i]-taps[i-1])
   }
-  console.log('intervals', intervals)
   return intervals
 }
 
@@ -57,23 +55,26 @@ function analyze() {
   if (taps.length >= 2) {
     let intervals = calcIntervals()
     let guess = Math.min(...intervals)
-    console.log('initial', guess)
     for (let i = 0; i < 10; i++) {
       guess = guessMinimalInterval(intervals, guess)
     }
-    let interval = guess
-    let nbNotes = Math.round(taps.at(-1) / interval)
-    rythm = '-'.repeat(nbNotes)
+    let minInterval = guess
+    let nbNotes = Math.round(taps.at(-1) / minInterval)
+    let rythmBool = [...Array(nbNotes)].fill(0)
+    for (let i = 0; i < taps.length; i++) {
+      let j = Math.round(taps[i]/minInterval)
+      rythmBool[j] = 1
+    }
+    rythm = rythmBool.map(r => r ? 'x' : '-').join('')
   }
 }
 
 function release() {
   if (!first) {
-    console.log('first')
+    console.log('Started recording')
     first = Date.now()
   } else {
     let now = Date.now()
-    console.log('release', now-first)
     releases.push(now-first)
     analyze()
   }

@@ -9,6 +9,7 @@ export function compileSvelte() {
       bundle: true,
       outfile: "docs/build/bundle.js",
       plugins: [sveltePlugin()],
+      sourcemap: true,
       logLevel: "info",
     })
     .catch(() => process.exit(1));

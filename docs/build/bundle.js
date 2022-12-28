@@ -30778,6 +30778,7 @@
       },
       m(target, anchor) {
         insert(target, div, anchor);
+        ctx[1](div);
       },
       p: noop,
       i: noop,
@@ -30785,14 +30786,15 @@
       d(detaching) {
         if (detaching)
           detach(div);
+        ctx[1](null);
       }
     };
   }
-  function instance4($$self) {
+  function instance4($$self, $$props, $$invalidate) {
+    let divElem;
     onMount(() => {
       const { Renderer: Renderer2, Stave: Stave2 } = Vex.Flow;
-      const div = document.getElementById("music-sheet-2");
-      const renderer = new Renderer2(div, Renderer2.Backends.SVG);
+      const renderer = new Renderer2(divElem, Renderer2.Backends.SVG);
       renderer.resize(500, 500);
       const context2 = renderer.getContext();
       context2.setFont("Arial", 10);
@@ -30803,7 +30805,13 @@
       stave.addClef("treble").addTimeSignature("4/4");
       stave.setContext(context2).draw();
     });
-    return [];
+    function div_binding($$value) {
+      binding_callbacks[$$value ? "unshift" : "push"](() => {
+        divElem = $$value;
+        $$invalidate(0, divElem);
+      });
+    }
+    return [divElem, div_binding];
   }
   var Music_sheet = class extends SvelteComponent {
     constructor(options) {

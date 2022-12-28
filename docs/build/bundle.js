@@ -159,7 +159,7 @@
     }
     component.$$.dirty[i / 31 | 0] |= 1 << i % 31;
   }
-  function init(component, options, instance3, create_fragment3, not_equal, props, append_styles, dirty = [-1]) {
+  function init(component, options, instance4, create_fragment4, not_equal, props, append_styles, dirty = [-1]) {
     const parent_component = current_component;
     set_current_component(component);
     const $$ = component.$$ = {
@@ -182,7 +182,7 @@
     };
     append_styles && append_styles($$.root);
     let ready = false;
-    $$.ctx = instance3 ? instance3(component, options.props || {}, (i, ret, ...rest) => {
+    $$.ctx = instance4 ? instance4(component, options.props || {}, (i, ret, ...rest) => {
       const value = rest.length ? rest[0] : ret;
       if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
         if (!$$.skip_bound && $$.bound[i])
@@ -195,7 +195,7 @@
     $$.update();
     ready = true;
     run_all($$.before_update);
-    $$.fragment = create_fragment3 ? create_fragment3($$.ctx) : false;
+    $$.fragment = create_fragment4 ? create_fragment4($$.ctx) : false;
     if (options.target) {
       if (options.hydrate) {
         start_hydrating();
@@ -370,10 +370,10 @@
   }
   function instance($$self, $$props, $$invalidate) {
     let { interval = null } = $$props;
-    let { delayMs = 1e3 } = $$props;
+    let { delayMs: delayMs2 = 1e3 } = $$props;
     const click_handler = () => {
       if (!interval) {
-        $$invalidate(0, interval = setInterval(() => note("A4", 0.5), delayMs));
+        $$invalidate(0, interval = setInterval(() => note("A4", 0.5), delayMs2));
       }
     };
     const click_handler_1 = () => {
@@ -384,9 +384,9 @@
       if ("interval" in $$props2)
         $$invalidate(0, interval = $$props2.interval);
       if ("delayMs" in $$props2)
-        $$invalidate(1, delayMs = $$props2.delayMs);
+        $$invalidate(1, delayMs2 = $$props2.delayMs);
     };
-    return [interval, delayMs, click_handler, click_handler_1];
+    return [interval, delayMs2, click_handler, click_handler_1];
   }
   var Metronome = class extends SvelteComponent {
     constructor(options) {
@@ -527,7 +527,187 @@
   };
   var guitar_default = Guitar;
 
+  // src/svelte/record_rythm.svelte
+  function create_fragment3(ctx) {
+    let h1;
+    let t1;
+    let textarea;
+    let t2;
+    let br;
+    let t3;
+    let button0;
+    let t5;
+    let button1;
+    let mounted;
+    let dispose;
+    return {
+      c() {
+        h1 = element("h1");
+        h1.textContent = "Record rythm";
+        t1 = space();
+        textarea = element("textarea");
+        t2 = space();
+        br = element("br");
+        t3 = space();
+        button0 = element("button");
+        button0.textContent = "Start";
+        t5 = space();
+        button1 = element("button");
+        button1.textContent = "Stop";
+        textarea.value = ctx[0];
+        attr(textarea, "rows", "15");
+        attr(textarea, "cols", "80");
+        attr(button0, "type", "button");
+        attr(button1, "type", "button");
+      },
+      m(target, anchor) {
+        insert(target, h1, anchor);
+        insert(target, t1, anchor);
+        insert(target, textarea, anchor);
+        insert(target, t2, anchor);
+        insert(target, br, anchor);
+        insert(target, t3, anchor);
+        insert(target, button0, anchor);
+        insert(target, t5, anchor);
+        insert(target, button1, anchor);
+        if (!mounted) {
+          dispose = [
+            listen(textarea, "keypress", ctx[1]),
+            listen(textarea, "keyup", ctx[2]),
+            listen(button0, "click", ctx[3]),
+            listen(button1, "click", ctx[4])
+          ];
+          mounted = true;
+        }
+      },
+      p(ctx2, [dirty]) {
+        if (dirty & 1) {
+          textarea.value = ctx2[0];
+        }
+      },
+      i: noop,
+      o: noop,
+      d(detaching) {
+        if (detaching)
+          detach(h1);
+        if (detaching)
+          detach(t1);
+        if (detaching)
+          detach(textarea);
+        if (detaching)
+          detach(t2);
+        if (detaching)
+          detach(br);
+        if (detaching)
+          detach(t3);
+        if (detaching)
+          detach(button0);
+        if (detaching)
+          detach(t5);
+        if (detaching)
+          detach(button1);
+        mounted = false;
+        run_all(dispose);
+      }
+    };
+  }
+  var delayMs = 500;
+  function mean(ary) {
+    if (ary.length == 0) {
+      return 0;
+    }
+    let sum = 0;
+    for (let i = 0; i < ary.length; i++) {
+      sum += ary[i];
+    }
+    return sum / ary.length;
+  }
+  function guessMinimalInterval(intervals, initialGuess) {
+    let guesses = [];
+    for (let i = 0; i < intervals.length; i++) {
+      let r = intervals[i] / initialGuess;
+      let mul = Math.round(r);
+      guesses.push(intervals[i] / mul);
+    }
+    return mean(guesses);
+  }
+  function instance3($$self, $$props, $$invalidate) {
+    let rythm = "";
+    let recordInterval;
+    let first;
+    let taps = [];
+    let releases = [];
+    function tap(e) {
+      e.preventDefault();
+      if (first && taps.length - releases.length < 1) {
+        let now = Date.now();
+        console.log("tap", now - first);
+        taps.push(now - first);
+      }
+    }
+    function calcIntervals() {
+      let intervals = [];
+      for (let i = 1; i < taps.length; i++) {
+        intervals.push(taps[i] - taps[i - 1]);
+      }
+      console.log("intervals", intervals);
+      return intervals;
+    }
+    function analyze() {
+      if (taps.length >= 2) {
+        let intervals = calcIntervals();
+        let guess = Math.min(...intervals);
+        console.log("initial", guess);
+        for (let i = 0; i < 10; i++) {
+          guess = guessMinimalInterval(intervals, guess);
+        }
+        let interval = guess;
+        let nbNotes = Math.round(taps.at(-1) / interval);
+        $$invalidate(0, rythm = "-".repeat(nbNotes));
+      }
+    }
+    function release() {
+      if (!first) {
+        console.log("first");
+        first = Date.now();
+      } else {
+        let now = Date.now();
+        console.log("release", now - first);
+        releases.push(now - first);
+        analyze();
+      }
+    }
+    function startRecordRythm() {
+      if (!recordInterval) {
+        recordInterval = setInterval(
+          () => {
+          },
+          delayMs
+        );
+      }
+    }
+    function stopRecordRythm() {
+      if (recordInterval) {
+        clearInterval(recordInterval);
+      }
+    }
+    return [rythm, tap, release, startRecordRythm, stopRecordRythm];
+  }
+  var Record_rythm = class extends SvelteComponent {
+    constructor(options) {
+      super();
+      init(this, options, instance3, create_fragment3, safe_not_equal, {});
+    }
+  };
+  var record_rythm_default = Record_rythm;
+
   // src/svelte/index.js
+  var recordRythm = new record_rythm_default({
+    target: document.getElementById("record_rythm"),
+    props: {
+      name: "world"
+    }
+  });
   var metronome = new metronome_default({
     target: document.getElementById("metronome"),
     props: {

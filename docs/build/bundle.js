@@ -30796,6 +30796,9 @@
       renderer.resize(500, 500);
       const context2 = renderer.getContext();
       context2.setFont("Arial", 10);
+      let color = "blue";
+      context2.setStrokeStyle(color);
+      context2.setFillStyle(color);
       const stave = new Stave2(10, 40, 400);
       stave.addClef("treble").addTimeSignature("4/4");
       stave.setContext(context2).draw();

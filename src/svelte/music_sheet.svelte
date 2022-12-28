@@ -15,6 +15,9 @@ onMount(() => {
   renderer.resize(500, 500);
   const context = renderer.getContext();
   context.setFont('Arial', 10);
+  let color = 'blue';
+  context.setStrokeStyle(color);
+  context.setFillStyle(color);
   
   // Create a stave of width 400 at position 10, 40.
   const stave = new Stave(10, 40, 400);

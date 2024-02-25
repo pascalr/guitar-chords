@@ -1,9 +1,8 @@
-import express from 'express';
-import path from 'path';
-import logger from 'morgan';
-import { fileURLToPath } from 'url';
-import http from 'http';
-import fs from 'fs';
+import express of 'express';
+import path of 'path';
+import logger of 'morgan';
+import { fileURLToPath } of 'url';
+import fs of 'fs';
 
 with {port = 3000} end
 

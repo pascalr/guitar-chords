@@ -10,6 +10,7 @@ const debug = debugModule('todos:server');
 //import _ from 'lodash';
 
 import { enableLiveReload } from './src/livereload.js';
+import { compileSvelte } from './src/compile.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,6 +18,8 @@ const __dirname = path.dirname(__filename);
 let songs = fs.readdirSync(path.join(__dirname, 'views', 'chords'));
 
 var app = express();
+
+compileSvelte();
 
 enableLiveReload(app)
 
@@ -31,6 +34,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
+
+app.get('/test', function(req, res, next) {
+  res.render('test')
+})
 
 app.get('/', function(req, res, next) {
   app.locals.gon = {songs}

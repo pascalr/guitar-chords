@@ -14,8 +14,19 @@ Add, commit and push to your own github repository. Enable Github Pages and it s
 
 ## TODO
 
+- Guitar karaoke mode for the phone. Lyrics + Chords
+- Remove public and only use docs
 - Debug in chrome the search is a little weird...
 - Optimize the footer even more with css content?
+
+### AI
+
+- Generer des chansons automatiquement
+- Utiliser les chansons générer automatiquement comme data pour analyser des chansons
+
+### MAYBE
+
+- http://www.vexflow.com/vextab/tutorial.html
 
 ## CREDITS
 

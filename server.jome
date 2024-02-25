@@ -4,10 +4,17 @@ import logger of 'morgan';
 import { fileURLToPath } of 'url';
 import fs of 'fs';
 
-with {port = 3000} end
+// FIXME: This does not working when doing #("./server.jome") because you can't deconstruct undefined...
+// I wish there was a way to specify a default and merge them
+// with
+//  options = {port = 3000} // Could I do something like that? Here I use port = 3000 instead of port: 3000, so this means that port = options.port || 3000
+// end
+// with {port = 3000} end
+with options end
+let port = (options?.port || 3000)
 
 //let songs = #(./views/chords/)
-let songs = fs.readdirSync(#./views/chords);
+let songs = fs.readdirSync(#./data/chords);
 
 express() chain
 

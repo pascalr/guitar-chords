@@ -1,0 +1,7 @@
+with cmd end
+
+if cmd === 'build' || cmd === 'b'
+  #("./build.jome")
+elsif cmd === 'server' || cmd === 's'
+  #("./server.jome")
+end

@@ -2,15 +2,13 @@ with
   locale = 'en'
 end
 
-//let head = 
-
 return <HTML>
   <html lang="<%- locale %>">
     <head>
-      <%- include('partials/head') %>
+      <%- #(./partials/head.html.jome, locale) %>
     </head>
     <body>
-      <%- include('partials/navbar') %>
+      <%- #(./partials/navbar.html.jome) %>
       <div style='max-height: calc(100vh - 3em); overflow: hidden; position: relative; height: fit-content;'>
         <div style='width: 85%; max-width: 30em; position: absolute; top: 50%; transform: translate(-50%, -1.4em); left: 50%; height: fit-content;'>
           <div style='position-relative'>
@@ -28,7 +26,7 @@ return <HTML>
           <% }) %>
         </ul>
       </div>
-      <%- include('partials/footer') %>
+      <%- #(./partials/footer.html.jome) %>
     </body>
   </html>
 

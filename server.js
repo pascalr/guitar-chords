@@ -3,8 +3,9 @@ const path = require("path");
 const logger = require("morgan");
 const { fileURLToPath } = require("url");
 const fs = require("fs");
-module.exports = ({ port = 3000 }) => {
-  let songs = fs.readdirSync(path.join(__dirname, "views/chords"));
+module.exports = (options) => {
+  let port = options?.port || 3000;
+  let songs = fs.readdirSync(path.join(__dirname, "data/chords"));
   (() => {
     let __chain = express();
     __chain.locals.locale = "en";

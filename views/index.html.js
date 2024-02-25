@@ -1,8 +1,5 @@
-with
-  locale = 'en'
-end
-
-return <HTML>
+module.exports = (locale = "en") => {
+  return `
   <html lang="<%- locale %>">
     <head>
       <%- #(./partials/head.html.jome, locale) %>
@@ -33,5 +30,5 @@ return <HTML>
   <script>
     window.gon = <%- JSON.stringify(gon) %>
   </script>
-  <script src='build/search.js' type='text/javascript'></script>
-</HTML>
+  <script src='build/search.js' type='text/javascript'></script>`;
+};

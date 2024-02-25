@@ -5,6 +5,8 @@ import { fileURLToPath } of 'url';
 
 // let rootDir = path.join(__dirname, 'docs')
 
+let index = #("./views/index.html.jome")
+
 // let pages = [
 //   {url: '/', out: './docs/index.html'},
 // ]

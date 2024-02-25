@@ -1,5 +1,8 @@
-<meta charset="utf-8">
-<meta name="locale" content="<%= locale %>" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guitar chords</title>
-<link rel="stylesheet" href="/css/main.css">
+with locale end
+return <html>
+  <meta charset="utf-8">
+  <meta name="locale" content="<%= locale %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guitar chords</title>
+  <link rel="stylesheet" href="/css/main.css">
+</html>

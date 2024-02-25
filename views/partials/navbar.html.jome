@@ -1,3 +1,5 @@
-<div style='height: 3rem; background-color: #262323; text-align: center; line-height: 3rem; font-size: 1.4em;'>
-  <a href='/' style='color: white; text-decoration: none;'>Pascal's Guitar Chords</a>
-</div>
+return <html>
+  <div style='height: 3rem; background-color: #262323; text-align: center; line-height: 3rem; font-size: 1.4em;'>
+    <a href='/' style='color: white; text-decoration: none;'>Pascal's Guitar Chords</a>
+  </div>
+</html>

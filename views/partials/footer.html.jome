@@ -1,13 +1,15 @@
-<footer>
-  <div><%# This div is important for css. See footer > div. %>
-    <div>
-      <div><b>CREDIT</b></div>
-      <div><b>Website</b>: <a href="https://pascalr.github.io/cv/">Pascal Rainville</a></div>
-      <div><b>Guitar image</b>: Jefferson Santos</div>
+return <html>
+  <footer>
+    <div><%# This div is important for css. See footer > div. %>
+      <div>
+        <div><b>CREDIT</b></div>
+        <div><b>Website</b>: <a href="https://pascalr.github.io/cv/">Pascal Rainville</a></div>
+        <div><b>Guitar image</b>: Jefferson Santos</div>
+      </div>
+      <div></div><%# This div is important for css. footer > div > div:nth-child(odd). %>
+      <div>
+        <div>Source code available on <a href="https://github.com/pascalr/guitar-chords">github</a>.</div>
+      </div>
     </div>
-    <div></div><%# This div is important for css. footer > div > div:nth-child(odd). %>
-    <div>
-      <div>Source code available on <a href="https://github.com/pascalr/guitar-chords">github</a>.</div>
-    </div>
-  </div>
-</footer>
+  </footer>
+</html>

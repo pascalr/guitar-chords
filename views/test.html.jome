@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="<%- locale %>">
-  <head>
-    <%- include('partials/head') %>
-  </head>
-  <body>
-    <%- include('partials/navbar') %>
-    <div id='music_sheet'></div>
-    <div id='metronome'></div>
-    <div id='guitar'></div>
-    <div id='record_rythm'></div>
-    <%- include('partials/footer') %>
-  </body>
-</html>
+return <HTML>
+  <html lang="<%- locale %>">
+    <head>
+      <%- include('partials/head') %>
+    </head>
+    <body>
+      <%- include('partials/navbar') %>
+      <div id='music_sheet'></div>
+      <div id='metronome'></div>
+      <div id='guitar'></div>
+      <div id='record_rythm'></div>
+      <%- include('partials/footer') %>
+    </body>
+  </html>
 
-<script src='build/bundle.js' type='text/javascript' /></script>
+  <script src='build/bundle.js' type='text/javascript' /></script>
+</HTML>

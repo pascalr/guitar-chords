@@ -43,7 +43,6 @@ body {
 /* Crucial properties to keep alignment intact */
 .song-container {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.7em;
 }
 
 @media (min-width: 1024px) {
@@ -65,4 +64,10 @@ body {
 
 .lyric-line {
   font-weight: bold;
+}
+
+.song-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

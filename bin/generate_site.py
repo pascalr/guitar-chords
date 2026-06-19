@@ -178,14 +178,22 @@ def generate_site():
 </head>
 <body>
 
-    <nav class="song-navbar">
-        <div><a href=".." style="color: inherit; text-decoration: none;">← Retour</a></div>
-        <div>{song_name}</div>
-        <div></div>
-    </nav>
+    <div class="song-page-container">
 
-    <div class="song-container">
-        {song_divs_html}
+        <nav class="song-navbar">
+            <div><a href=".." style="color: inherit; text-decoration: none;">← Retour</a></div>
+            <div>{song_name}</div>
+            <div></div>
+        </nav>
+
+        <div style="flex-grow: 1;"></div>
+
+        <div class="song-container">
+            {song_divs_html}
+        </div>
+
+        <div style="flex-grow: 1;"></div>
+
     </div>
 
     <script src="/assets/script.js"></script>

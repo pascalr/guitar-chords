@@ -48,9 +48,11 @@ body {
 
 @media (min-width: 1024px) {
   .song-container {
+    display: flex;
+    justify-content: space-around;
     /* Reads data-columns, casts it as an integer, and defaults to 1 if missing */
-    column-count: var(--columns, 1);
-    column-gap: 2rem; 
+    /*column-count: var(--columns, 1);
+    column-gap: 2rem; */
   }
 }
 

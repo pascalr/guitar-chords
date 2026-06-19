@@ -4,6 +4,7 @@ import json
 import html
 import os
 import re
+import math
 from pathlib import Path
 
 # Configuration
@@ -77,39 +78,94 @@ def generate_site():
             # Escape HTML characters so they don't break the rendering
             safe_content = html.escape(cleaned_text)
 
-            column_count = index_data.get(filename, {}).get("column_count", 1)
-
             # --- Inside your song processing loop ---
             # Assuming 'cleaned_lines' is the list of lines from the previous step
 
             div_lines = []
             content_started = False
 
+            # --- 1. Pre-process all lines into structured data ---
+            processed_lines = []
+            content_started = False
+
             for line in cleaned_lines:
-                # Replicate the '.lstrip()' behavior by skipping initial empty lines
+                # Skip initial empty lines of the song
                 if not content_started and line.strip() == "":
                     continue
                 content_started = True
 
-                # Check the raw line for chords before escaping characters
+                # Determine classification
                 if is_chord_line(line):
                     line_class = "line chord-line"
+                    escaped_text = html.escape(line)
                 elif line.strip() == "":
                     line_class = "line empty-line"
+                    escaped_text = "&nbsp;"
                 else:
                     line_class = "line lyric-line"
+                    escaped_text = html.escape(line)
 
-                # Escape HTML symbols safely and preserve spacing inside the div
-                escaped_text = html.escape(line)
+                processed_lines.append({"class": line_class, "text": escaped_text})
 
-                # Use non-breaking space for empty lines so they take up vertical space
-                if line_class == "line empty-line":
-                    escaped_text = "&nbsp;"
+            # --- 2. Distribute lines into columns based on your rules ---
+            column_count = index_data.get(filename, {}).get("column_count", 1)
+            columns = [[] for _ in range(column_count)]
+            line_pool = list(processed_lines)
 
-                div_lines.append(f'    <div class="{line_class}">{escaped_text}</div>')
+            for i in range(column_count):
+                if not line_pool:
+                    break
 
-            # Join all generated row elements together
-            song_divs_html = "\n".join(div_lines)
+                remaining_cols = column_count - i
+                # Calculate an even distribution for the remaining lines
+                ideal_chunk_size = math.ceil(len(line_pool) / remaining_cols)
+
+                # Slice the chunk for the current column
+                current_chunk = line_pool[:ideal_chunk_size]
+                line_pool = line_pool[ideal_chunk_size:]
+
+                # RULE: If a column ends with a lyric line, push it to the next column
+                if remaining_cols > 1 and current_chunk:
+                    if current_chunk[-1]["class"] == "line lyric-line":
+                        line_pool.insert(0, current_chunk.pop())
+
+                # RULE: If a column starts with an empty line, move it to the previous column
+                while current_chunk and current_chunk[0]["class"] == "line empty-line":
+                    item = current_chunk.pop(0)
+                    if i > 0:
+                        columns[i - 1].append(item)
+                    # If i == 0, there is no previous column, so it is safely ignored
+
+                columns[i] = current_chunk
+
+            # If any leftover lines remain due to adjustments, append them to the final column
+            if line_pool:
+                columns[-1].extend(line_pool)
+
+            # Final safety check: Catch any edge cases after pool adjustments
+            for i in range(column_count):
+                while columns[i] and columns[i][0]["class"] == "line empty-line":
+                    item = columns[i].pop(0)
+                    if i > 0:
+                        columns[i - 1].append(item)
+
+            # --- 3. Generate the HTML Structure ---
+            column_divs = []
+            for col in columns:
+                if not col:
+                    continue  # Skip generating empty HTML columns if a song is too short
+
+                col_lines_html = []
+                for item in col:
+                    col_lines_html.append(
+                        f'        <div class="{item["class"]}">{item["text"]}</div>'
+                    )
+
+                joined_lines = "\n".join(col_lines_html)
+                column_divs.append(f'    <div class="column">\n{joined_lines}\n    </div>')
+
+            # Join all column containers together
+            song_divs_html = "\n".join(column_divs)
 
             # 2. Build the individual song HTML template
             song_html = f"""<!DOCTYPE html>
@@ -128,7 +184,7 @@ def generate_site():
         <div></div>
     </nav>
 
-    <div class="song-container" style="--columns: {column_count};">
+    <div class="song-container">
         {song_divs_html}
     </div>
 

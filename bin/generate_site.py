@@ -183,6 +183,15 @@ def generate_site():
             # Join all column containers together
             song_divs_html = "\n".join(column_divs)
 
+            capo_value = index_data.get(filename, {}).get("capo", 0)
+
+            # Assuming 'capo_value' comes from your JSON index or file parsing
+            # This checks if capo_value exists, and ensures it isn't "0", empty, or None
+            if capo_value and str(capo_value).strip() not in ["0", "None", ""]:
+                capo_text = f"<div id='capo-btn'>(capo {capo_value})</div>"
+            else:
+                capo_text = ""
+
             # 2. Build the individual song HTML template
             song_html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -198,8 +207,10 @@ def generate_site():
 
         <nav class="song-navbar">
             <div><a href=".." style="color: inherit; text-decoration: none;">← Retour</a></div>
+            <div style="flex-grow: 1;"></div>
             <div>{song_name}</div>
-            <div></div>
+            {capo_text}
+            <div style="flex-grow: 1;"></div>
         </nav>
 
         <div style="flex-grow: 1;"></div>
@@ -212,7 +223,7 @@ def generate_site():
 
     </div>
 
-    <script src="/assets/script.js"></script>
+    <script src="../assets/script.js"></script>
 </body>
 </html>
 """
@@ -251,7 +262,7 @@ def generate_site():
         </ul>
     </main>
 
-    <script src="/assets/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
 """

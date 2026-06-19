@@ -16,7 +16,6 @@ body {
 
 .song-navbar {
   display: flex;
-  justify-content: space-between;
   height: 2rem;
   background-color: #262323;
   text-align: center;
@@ -24,6 +23,7 @@ body {
   font-size: 1.1em;
   color: white;
   text-decoration: none;
+  padding: 0 1em;
 }
 
 .index-content {
@@ -70,4 +70,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+#capo-btn {
+  color: red;
+  padding-left: 1em;
 }

@@ -202,7 +202,7 @@
     "Foreigner - I want to know what love is": {
         "author": "Foreigner",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "I want to know what love is",
         "scale": 1.0
@@ -218,7 +218,7 @@
     "Frozen - Let it go": {
         "author": "Frozen",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Let it go",
         "scale": 1.0
@@ -226,7 +226,7 @@
     "Fun - We are young": {
         "author": "Fun",
         "capo": "5",
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "We are young",
         "scale": 1.0

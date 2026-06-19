@@ -169,7 +169,7 @@
     },
     "Ed Sheeran - Galway Girl": {
         "author": "Ed Sheeran",
-        "capo": null,
+        "capo": 2,
         "column_count": 1,
         "key": null,
         "name": "Galway Girl",
@@ -289,7 +289,7 @@
     },
     "Hugo Lapointe - Célibataire": {
         "author": "Hugo Lapointe",
-        "capo": null,
+        "capo": 2,
         "column_count": 2,
         "key": null,
         "name": "Célibataire",
@@ -329,7 +329,7 @@
     },
     "Je voudrais un bonhomme de neige - Frozen": {
         "author": "Je voudrais un bonhomme de neige",
-        "capo": null,
+        "capo": 3,
         "column_count": 2,
         "key": null,
         "name": "Frozen",
@@ -441,7 +441,7 @@
     },
     "Lukas Graham - 7 Years Old": {
         "author": "Lukas Graham",
-        "capo": null,
+        "capo": 3,
         "column_count": 2,
         "key": null,
         "name": "7 Years Old",
@@ -649,7 +649,7 @@
     },
     "Roxane Bruneau - Des p'tits bout de toi": {
         "author": "Roxane Bruneau",
-        "capo": null,
+        "capo": 2,
         "column_count": 1,
         "key": null,
         "name": "Des p'tits bout de toi",

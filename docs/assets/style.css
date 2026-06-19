@@ -1,0 +1,29 @@
+body {
+  background-color: black;
+  margin: 0;
+  color: #f9bc49;
+}
+
+.navbar {
+  height: 3rem;
+  background-color: #262323;
+  text-align: center;
+  line-height: 3rem;
+  font-size: 1.4em;
+  color: white;
+  text-decoration: none;
+}
+
+.content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.song-list li {
+  list-style-type: none;
+}
+
+.song-list li a {
+  text-decoration: none;
+  color: #f9bc49;
+}

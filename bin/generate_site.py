@@ -23,7 +23,14 @@ def is_chord_line(line_text):
     words = line_text.split()
     if not words:
         return False  # Empty lines are not chord lines
-    return all(CHORD_REGEX.match(w) for w in words)
+
+    clean_words = []
+    for w in words:
+        # Strip parentheses from the edges of the word if they exist
+        clean_word = w.strip("()")
+        clean_words.append(clean_word)
+        
+    return all(CHORD_REGEX.match(w) for w in clean_words)
 
 def generate_site():
     # Ensure target directories exist
@@ -124,9 +131,9 @@ def generate_site():
                 current_chunk = line_pool[:ideal_chunk_size]
                 line_pool = line_pool[ideal_chunk_size:]
 
-                # RULE: If a column ends with a lyric line, push it to the next column
+                # RULE: If a column ends with a chord line, push it to the next column
                 if remaining_cols > 1 and current_chunk:
-                    if current_chunk[-1]["class"] == "line lyric-line":
+                    if current_chunk[-1]["class"] == "line chord-line":
                         line_pool.insert(0, current_chunk.pop())
 
                 # RULE: If a column starts with an empty line, move it to the previous column

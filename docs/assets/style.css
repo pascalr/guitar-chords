@@ -16,14 +16,15 @@ body {
 
 .song-navbar {
   display: flex;
-  height: 2rem;
+  height: 2.2rem;
   background-color: #262323;
   text-align: center;
-  line-height: 2rem;
+  line-height: 2.2rem;
   font-size: 1.1em;
   color: white;
   text-decoration: none;
   padding: 0 1em;
+  align-items: center;
 }
 
 .index-content {
@@ -73,6 +74,38 @@ body {
 }
 
 #capo-btn {
-  color: red;
-  padding-left: 1em;
+  margin-left: 1em;
+  padding: 0 0.5em;
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 20px;       /* Gives it a sleek, modern pill shape */
+  cursor: pointer;           /* Forces the mouse cursor to become a pointer hand */
+  user-select: none;         /* Prevents ugly blue text-highlighting on double clicks */
+  text-transform: uppercase; /* Optional: Makes it look a bit more like a UI element */
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease; /* Smoothly animates hover effects */
+  height: fit-content;
+  line-height: 1.5em;
+
+  /* Default "Red" State */
+  color: #e03131;            /* Swap this with your exact default red hex */
+  border: 2px solid #e03131;
+  background-color: transparent;
+}
+
+/* Hover effect for the default state */
+#capo-btn:hover {
+  background-color: rgba(224, 49, 49, 0.1); /* Adds a subtle red tint */
+}
+
+/* Transposed "White" State (Triggers automatically via JS attribute change) */
+#capo-btn[data-state="transposed"] {
+  color: white;
+  border-color: white;
+}
+
+/* Hover effect for the transposed state */
+#capo-btn[data-state="transposed"]:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Adds a subtle white tint */
 }

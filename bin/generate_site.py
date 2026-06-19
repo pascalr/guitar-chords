@@ -188,7 +188,7 @@ def generate_site():
             # Assuming 'capo_value' comes from your JSON index or file parsing
             # This checks if capo_value exists, and ensures it isn't "0", empty, or None
             if capo_value and str(capo_value).strip() not in ["0", "None", ""]:
-                capo_text = f"<div id='capo-btn'>(capo {capo_value})</div>"
+                capo_text = f"<div id='capo-btn'>capo {capo_value}</div>"
             else:
                 capo_text = ""
 

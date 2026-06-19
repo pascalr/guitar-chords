@@ -1,78 +1,67 @@
 document.addEventListener("DOMContentLoaded", () => {
     const capoBtn = document.getElementById("capo-btn");
-    
-    // Target the song container holding our data-capo attribute
     const songContainer = document.querySelector(".song-container");
 
     if (!capoBtn || !songContainer) return;
 
+    // 1. Read the initial value and text ONCE when the page loads
+    const match = capoBtn.textContent.match(/\d+/);
+    const capoValue = match ? parseInt(match[0], 10) : 0;
+    
+    if (capoValue === 0) return; // Exit if no capo is required
+
+    const originalBtnText = capoBtn.textContent; // Save initial layout text (e.g. "(capo 2)")
+    capoBtn.dataset.state = "original";         // Track if state is "original" or "transposed"
+
     capoBtn.addEventListener("click", () => {
-
-        // 1. Extract the number from the button text (e.g., "(capo 2)")
-        const match = capoBtn.textContent.match(/\d+/);
-        const capoValue = match ? parseInt(match[0], 10) : 0;
-        
-        // If there is no capo, or it's already been neutralized, exit early
-        if (!capoValue || capoValue === 0) {
-            console.log("No capo transposition needed.");
-            return;
-        }
-
-        // 2. Query all chord line divs
+        const currentState = capoBtn.dataset.state;
         const chordLines = document.querySelectorAll("div.chord-line");
+        
+        // Determine math direction: 
+        // Going to sans capo? Shift UP (+capoValue). Returning to capo? Shift DOWN (-capoValue).
+        const semitones = currentState === "original" ? capoValue : -capoValue;
 
         chordLines.forEach((line) => {
-            // Read raw text layout safely
             const originalText = line.textContent;
-            
-            // Split line by spaces while capturing the spaces inside the array
-            // Example: "Am   F" becomes ["Am", "   ", "F"]
             const tokens = originalText.split(/(\s+)/);
-            let delta = 0; // Tracks character length changes to adjust spaces
+            let delta = 0;
 
             for (let i = 0; i < tokens.length; i++) {
                 if (tokens[i].trim() === "") {
-                    // This token is a block of spaces
                     if (delta !== 0) {
                         let originalSpaceLength = tokens[i].length;
                         let newSpaceCount = originalSpaceLength - delta;
 
                         if (newSpaceCount < 1) {
-                            // If the chord grew too much, leave 1 safety space 
-                            // and carry over the remaining delta to the next space block
                             delta = delta - (originalSpaceLength - 1);
                             newSpaceCount = 1;
                         } else {
-                            delta = 0; // Delta fully absorbed
+                            delta = 0;
                         }
                         tokens[i] = " ".repeat(newSpaceCount);
                     }
                 } else {
-                    // This token is a chord (e.g., "Am", "(A#)x4", "C/E")
-                    // Skip standalone multipliers like "x4"
                     if (/^[xX]\d+$/.test(tokens[i])) continue;
 
                     const originalLength = tokens[i].length;
-                    const transposedChord = transposeChord(tokens[i], capoValue);
+                    const transposedChord = transposeChord(tokens[i], semitones);
                     
                     tokens[i] = transposedChord;
-                    // Calculate how much wider or narrower the string became
                     delta += (transposedChord.length - originalLength);
                 }
             }
-
-            // Write the newly aligned string back into the DOM element
             line.textContent = tokens.join("");
         });
 
-        // 3. Update UI states so it can't be double-transposed accidentally
-        songContainer.dataset.capo = "0"; 
-        capoBtn.disabled = true;
-        capoBtn.textContent = "(sans Capo)";
-        
-        // Optional: Update your navbar text if you have a capo status display
-        const statusDiv = document.querySelector(".song-navbar div:nth-child(3)");
-        if (statusDiv) statusDiv.textContent = "Sans capo";
+        if (currentState === "original") {
+            capoBtn.dataset.state = "transposed";
+            capoBtn.textContent = "sans capo"; 
+            capoBtn.style.color = "white"; // Changes text color to white
+        } else {
+            capoBtn.dataset.state = "original";
+            capoBtn.textContent = originalBtnText; // Restores original "(capo X)" string layout
+            capoBtn.style.color = "";      // Clears inline style, falling back to your red CSS default
+        }
     });
 });
 
@@ -117,7 +106,7 @@ function transposeChord(chord, semitones) {
     if (index === -1) return chord;
     
     // Transpose root up
-    let newIndex = (index + semitones) % 12;
+    let newIndex = ((index + semitones) % 12 + 12) % 12;
     let newRoot = scale[newIndex];
     
     // Handle slash chords/compound bass notes (e.g., C/E -> D/F#)

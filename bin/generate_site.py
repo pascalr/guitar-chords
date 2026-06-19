@@ -36,8 +36,21 @@ def generate_site():
                 print(f"Could not read {filename}: {e}")
                 continue
 
-            # Escape HTML characters (like < or >) so they don't break the rendering
-            safe_content = html.escape(song_content)
+            # Filter out lines starting with "Capo:" or "Key:"
+            cleaned_lines = []
+            for line in song_content.splitlines():
+                # .lstrip() ensures it catches them even if there are accidental spaces before "Capo:"
+                if line.lstrip().startswith("Capo:") or line.lstrip().startswith(
+                    "Key:"
+                ):
+                    continue
+                cleaned_lines.append(line)
+
+            # Rejoin the lines and strip all whitespaces/newlines from the very beginning
+            cleaned_text = "\n".join(cleaned_lines).lstrip()
+
+            # Escape HTML characters so they don't break the rendering
+            safe_content = html.escape(cleaned_text)
 
             # 2. Build the individual song HTML template
             song_html = f"""<!DOCTYPE html>

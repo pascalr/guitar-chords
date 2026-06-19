@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import html
 import os
 from pathlib import Path
@@ -8,6 +9,7 @@ from pathlib import Path
 CHORDS_DIR = "./data/chords"
 INDEX_PATH = "docs/index.html"
 SONGS_DIR = "docs/c"
+SONGS_DATA_PATH = "./data/index.json"
 
 
 def generate_site():
@@ -15,6 +17,17 @@ def generate_site():
     os.makedirs(SONGS_DIR, exist_ok=True)
 
     songs = []
+
+    # 1. Load existing index or initialize an empty dictionary
+    if os.path.exists(SONGS_DATA_PATH):
+        try:
+            with open(SONGS_DATA_PATH, "r", encoding="utf-8") as f:
+                index_data = json.load(f)
+        except json.JSONDecodeError:
+            print(f"Warning: {SONGS_DATA_PATH} was corrupted or empty. Initializing new index.")
+            index_data = {}
+    else:
+        index_data = {}
 
     if not os.path.exists(CHORDS_DIR):
         print(f"Error: Source directory '{CHORDS_DIR}' does not exist.")
@@ -52,6 +65,8 @@ def generate_site():
             # Escape HTML characters so they don't break the rendering
             safe_content = html.escape(cleaned_text)
 
+            column_count = index_data.get(filename, {}).get("column_count", 1)
+
             # 2. Build the individual song HTML template
             song_html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -69,7 +84,7 @@ def generate_site():
         <div></div>
     </nav>
 
-    <pre>{safe_content}</pre>
+    <pre style="--columns: {column_count};">{safe_content}</pre>
 
     <script src="/assets/script.js"></script>
 </body>

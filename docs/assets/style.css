@@ -39,3 +39,11 @@ body {
   text-decoration: none;
   color: #f9bc49;
 }
+
+@media (min-width: 1024px) {
+  pre {
+    /* Reads data-columns, casts it as an integer, and defaults to 1 if missing */
+    column-count: var(--columns);
+    column-gap: 2rem; 
+  }
+}

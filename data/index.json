@@ -3,594 +3,792 @@
         "author": "The blues brothers",
         "name": "Everybody Needs Somebody To Love",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Offenbach - Mes blues passent pu dans porte": {
         "author": "Offenbach",
         "name": "Mes blues passent pu dans porte",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "James Blunt - Goodbye My Lover": {
         "author": "James Blunt",
         "name": "Goodbye My Lover",
         "capo": null,
-        "key": "E"
+        "key": "E",
+        "column_count": 1,
+        "scale": 1.0
     },
     "Ed Sheeran - Galway Girl": {
         "author": "Ed Sheeran",
         "name": "Galway Girl",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "La Chicane - Juste pour voir le monde": {
         "author": "La Chicane",
         "name": "Juste pour voir le monde",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Harry Styles - Sign of the times": {
         "author": "Harry Styles",
         "name": "Sign of the times",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Nine inch nails - Everyday is exactly the same": {
         "author": "Nine inch nails",
         "name": "Everyday is exactly the same",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Harmonium - Un musicien parmis tant d'autres": {
         "author": "Harmonium",
         "name": "Un musicien parmis tant d'autres",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Hallelujah": {
         "author": "Unknown",
         "name": "Hallelujah",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Eagle-Eyed Cherry - Save tonight": {
         "author": "Eagle",
         "name": "Eyed Cherry - Save tonight",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Les deux frères - Maudite promesse": {
         "author": "Les deux frères",
         "name": "Maudite promesse",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Tal Bachman - She's So High": {
         "author": "Tal Bachman",
         "name": "She's So High",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "The White Strips - Seven Army Nation": {
         "author": "The White Strips",
         "name": "Seven Army Nation",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Neil Young - Southern man": {
         "author": "Neil Young",
         "name": "Southern man",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "The Proclaimers - I'm Gonna Be": {
         "author": "The Proclaimers",
         "name": "I'm Gonna Be",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Styx - Come Sail Away": {
         "author": "Styx",
         "name": "Come Sail Away",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Rise Against - Hero Of War": {
         "author": "Rise Against",
         "name": "Hero Of War",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Roxane Bruneau - Des p'tits bout de toi": {
         "author": "Roxane Bruneau",
         "name": "Des p'tits bout de toi",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Imagine Dragons - Radioactive": {
         "author": "Imagine Dragons",
         "name": "Radioactive",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Tones And I - Dance Monkey": {
         "author": "Tones And I",
         "name": "Dance Monkey",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Edward Sharpe & The Magnetic Zeros - Home": {
         "author": "Edward Sharpe & The Magnetic Zeros",
         "name": "Home",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Québec Redneck - Chu ben plus cool ça brosse": {
         "author": "Québec Redneck",
         "name": "Chu ben plus cool ça brosse",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Richard Desjardins - Le bon gars": {
         "author": "Richard Desjardins",
         "name": "Le bon gars",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Linda Lemay - Le plus fort c'est mon père": {
         "author": "Linda Lemay",
         "name": "Le plus fort c'est mon père",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Johnny Cash - It aint me babe": {
         "author": "Johnny Cash",
         "name": "It aint me babe",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Rock Mafia - The Big Bang": {
         "author": "Rock Mafia",
         "name": "The Big Bang",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Ed Sheeran - The A team": {
         "author": "Ed Sheeran",
         "name": "The A team",
         "capo": "2",
-        "key": "A"
+        "key": "A",
+        "column_count": 1,
+        "scale": 1.0
     },
     "John Legend - All of me": {
         "author": "John Legend",
         "name": "All of me",
         "capo": "1",
-        "key": "Em"
+        "key": "Em",
+        "column_count": 1,
+        "scale": 1.0
     },
     "Mumford & Sons - Little Lion Man": {
         "author": "Mumford & Sons",
         "name": "Little Lion Man",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "La Chicane - Tu m'manques": {
         "author": "La Chicane",
         "name": "Tu m'manques",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "The Rolling Stones - You can't always get what you want": {
         "author": "The Rolling Stones",
         "name": "You can't always get what you want",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Louise Forestier - Dans la prison de Londres": {
         "author": "Louise Forestier",
         "name": "Dans la prison de Londres",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Dany Bédar - Faire la paix avec l'amour": {
         "author": "Dany Bédar",
         "name": "Faire la paix avec l'amour",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Gerry Boulet - Un beau grand bateau": {
         "author": "Gerry Boulet",
         "name": "Un beau grand bateau",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Bernard Adamus - Fulton Road": {
         "author": "Bernard Adamus",
         "name": "Fulton Road",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Franz Ferdinand - Take Me Out": {
         "author": "Franz Ferdinand",
         "name": "Take Me Out",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 3,
+        "scale": 1.0
     },
     "Everlast - What it's like": {
         "author": "Everlast",
         "name": "What it's like",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Noir Désir - le vent nous portera": {
         "author": "Noir Désir",
         "name": "le vent nous portera",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Deep Blue Something - Breakfast at Tiffany's": {
         "author": "Deep Blue Something",
         "name": "Breakfast at Tiffany's",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "David Bowie - Space Oddity": {
         "author": "David Bowie",
         "name": "Space Oddity",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Suzy Island - Show Me The Way": {
         "author": "Suzy Island",
         "name": "Show Me The Way",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Foreigner - I want to know what love is": {
         "author": "Foreigner",
         "name": "I want to know what love is",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Gotye - Somebody that I used to know": {
         "author": "Gotye",
         "name": "Somebody that I used to know",
         "capo": "5",
-        "key": "Dm"
+        "key": "Dm",
+        "column_count": 1,
+        "scale": 1.0
     },
     "Queen - Crazy Little Thing Called Love": {
         "author": "Queen",
         "name": "Crazy Little Thing Called Love",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Je voudrais un bonhomme de neige - Frozen": {
         "author": "Je voudrais un bonhomme de neige",
         "name": "Frozen",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Vincent Vallières - À hauteur d'homme": {
         "author": "Vincent Vallières",
         "name": "À hauteur d'homme",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Hugo Lapointe - Célibataire": {
         "author": "Hugo Lapointe",
         "name": "Célibataire",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Paul Piché - Mon Joe": {
         "author": "Paul Piché",
         "name": "Mon Joe",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Red Hot Chilly Peppers - Otherside": {
         "author": "Red Hot Chilly Peppers",
         "name": "Otherside",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Johnny Cash - Cry Cry Cry": {
         "author": "Johnny Cash",
         "name": "Cry Cry Cry",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Diane Tell - Si j'étais un homme": {
         "author": "Diane Tell",
         "name": "Si j'étais un homme",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Pascale Picard - Gate 22": {
         "author": "Pascale Picard",
         "name": "Gate 22",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Lukas Graham - 7 Years Old": {
         "author": "Lukas Graham",
         "name": "7 Years Old",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Niall Horan - Slow Hands": {
         "author": "Niall Horan",
         "name": "Slow Hands",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Stromae - Papaoutai (Papa ou tu es)": {
         "author": "Stromae",
         "name": "Papaoutai (Papa ou tu es)",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Bruno Mars - Just the way you are": {
         "author": "Bruno Mars",
         "name": "Just the way you are",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Beau Dommage - Le blues de la métropole": {
         "author": "Beau Dommage",
         "name": "Le blues de la métropole",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Daniel Powter - Bad Day": {
         "author": "Daniel Powter",
         "name": "Bad Day",
         "capo": "1",
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Amy MacDonald - This is the life": {
         "author": "Amy MacDonald",
         "name": "This is the life",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "REM - Losing my religion": {
         "author": "REM",
         "name": "Losing my religion",
         "capo": null,
-        "key": "Am"
+        "key": "Am",
+        "column_count": 2,
+        "scale": 1.0
     },
     "Frozen - Let it go": {
         "author": "Frozen",
         "name": "Let it go",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Harmonium - Pour un instant": {
         "author": "Harmonium",
         "name": "Pour un instant",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Simon & Garfunkel - The Boxer": {
         "author": "Simon & Garfunkel",
         "name": "The Boxer",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Nirvana - Smells like teen spirit": {
         "author": "Nirvana",
         "name": "Smells like teen spirit",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Phlake - Pregnant": {
         "author": "Phlake",
         "name": "Pregnant",
         "capo": "1",
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Dropkick Murphys - Rose tattoo": {
         "author": "Dropkick Murphys",
         "name": "Rose tattoo",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "The Beatles - She Loves You": {
         "author": "The Beatles",
         "name": "She Loves You",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 3,
+        "scale": 1.0
     },
     "Calum Scott - Dancing on my own": {
         "author": "Calum Scott",
         "name": "Dancing on my own",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Bill Haley and His Comets - Rock Around The Clock": {
         "author": "Bill Haley and His Comets",
         "name": "Rock Around The Clock",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Québec Redneck - Le réchauffement de la planète": {
         "author": "Québec Redneck",
         "name": "Le réchauffement de la planète",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Auli'i Cravalho - How Far I'll Go (Moana)": {
         "author": "Auli'i Cravalho",
         "name": "How Far I'll Go (Moana)",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Bernard Adamus - Brun la couleur de l'amour": {
         "author": "Bernard Adamus",
         "name": "Brun la couleur de l'amour",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Sleeping at Last - Safety Dance": {
         "author": "Sleeping at Last",
         "name": "Safety Dance",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Pink - Just give me a reason": {
         "author": "Pink",
         "name": "Just give me a reason",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Cat Stevens - Lady d'Arbanville": {
         "author": "Cat Stevens",
         "name": "Lady d'Arbanville",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "James Blunt - You're Beautiful": {
         "author": "James Blunt",
         "name": "You're Beautiful",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Jean Leloup - Balade à toronto": {
         "author": "Jean Leloup",
         "name": "Balade à toronto",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Christine Aguilera - Say something": {
         "author": "Christine Aguilera",
         "name": "Say something",
         "capo": "2",
-        "key": "Am"
+        "key": "Am",
+        "column_count": 1,
+        "scale": 1.0
     },
     "Red Hot Chilly Peppers - Californication": {
         "author": "Red Hot Chilly Peppers",
         "name": "Californication",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Buffalo Springfield - For What It's Worth": {
         "author": "Buffalo Springfield",
         "name": "For What It's Worth",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Paul Piché - L'escalier": {
         "author": "Paul Piché",
         "name": "L'escalier",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Yelawolf - Till it's gone": {
         "author": "Yelawolf",
         "name": "Till it's gone",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Renaud - L'hexagone": {
         "author": "Renaud",
         "name": "L'hexagone",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Led Zeppelin -  Stairway to Heaven": {
         "author": "Led Zeppelin",
         "name": "Stairway to Heaven",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Fun - We are young": {
         "author": "Fun",
         "name": "We are young",
         "capo": "5",
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Jason Mraz - I'm Yours": {
         "author": "Jason Mraz",
         "name": "I'm Yours",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Mario Pelchat - Je ne t'aime plus": {
         "author": "Mario Pelchat",
         "name": "Je ne t'aime plus",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Richard Desjardins - Tu m'aimes tu": {
         "author": "Richard Desjardins",
         "name": "Tu m'aimes tu",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Joe Dassin - Aux Champs Élysées": {
         "author": "Joe Dassin",
         "name": "Aux Champs Élysées",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Adele - Someone like you": {
         "author": "Adele",
         "name": "Someone like you",
         "capo": "2",
-        "key": "G"
+        "key": "G",
+        "column_count": 3,
+        "scale": 1.0
     },
     "Johnny Cash - Ring of Fire": {
         "author": "Johnny Cash",
         "name": "Ring of Fire",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 3,
+        "scale": 1.0
     },
     "Tenacious D - Tribute": {
         "author": "Tenacious D",
         "name": "Tribute",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Les cowboys fringants - Marine marchande": {
         "author": "Les cowboys fringants",
         "name": "Marine marchande",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Beau dommage - Picbois": {
         "author": "Beau dommage",
         "name": "Picbois",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Sam Smith - I'm not the only": {
         "author": "Sam Smith",
         "name": "I'm not the only",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "The Dead South - In Hell Il Be In Good Company": {
         "author": "The Dead South",
         "name": "In Hell Il Be In Good Company",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     },
     "Blink 182 - I Miss You": {
         "author": "Blink 182",
         "name": "I Miss You",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 2,
+        "scale": 1.0
     },
     "Gary Jules - Mad world": {
         "author": "Gary Jules",
         "name": "Mad world",
         "capo": "1",
-        "key": "Em"
+        "key": "Em",
+        "column_count": 2,
+        "scale": 1.0
     },
     "Manau - La tribu de Dana": {
         "author": "Manau",
         "name": "La tribu de Dana",
         "capo": null,
-        "key": null
+        "key": null,
+        "column_count": 1,
+        "scale": 1.0
     }
 }

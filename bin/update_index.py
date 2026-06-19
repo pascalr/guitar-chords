@@ -87,7 +87,7 @@ def update_index():
     if has_updates:
         with open(INDEX_PATH, "w", encoding="utf-8") as f:
             # ensure_ascii=False preserves accents like é, à, ç, etc.
-            json.dump(index_data, f, indent=4, ensure_ascii=False)
+            json.dump(index_data, f, indent=4, ensure_ascii=False, sort_keys=True)
         print(f"Successfully updated {INDEX_PATH}")
     else:
         print("No new chord files detected. Index is up to date.")

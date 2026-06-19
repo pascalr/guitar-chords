@@ -57,10 +57,10 @@ body {
 /* Optional styling hooks now available to you */
 .chord-line {
   white-space: pre; /* Forces browser to respect internal line spacing spaces */
-  color: #1a73e8;
+  color: #e5c396; /* #1a73e8; */
   font-weight: bold;
 }
 
 .lyric-line {
-  color: #f0efff;
+  font-weight: bold;
 }

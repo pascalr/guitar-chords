@@ -107,7 +107,7 @@ def main():
 
     # Save modifications back to index.json
     with open(INDEX_PATH, "w", encoding="utf-8") as f:
-        json.dump(index_data, f, indent=4, ensure_ascii=False)
+        json.dump(index_data, f, indent=4, ensure_ascii=False, sort_keys=True)
 
     print(
         f"Calculated layout metrics for {updated_count} files inside '{INDEX_PATH}'."

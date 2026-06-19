@@ -40,10 +40,27 @@ body {
   color: #f9bc49;
 }
 
+/* Crucial properties to keep alignment intact */
+.song-container {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.7em;
+}
+
 @media (min-width: 1024px) {
-  pre {
+  .song-container {
     /* Reads data-columns, casts it as an integer, and defaults to 1 if missing */
-    column-count: var(--columns);
+    column-count: var(--columns, 1);
     column-gap: 2rem; 
   }
+}
+
+/* Optional styling hooks now available to you */
+.chord-line {
+  white-space: pre; /* Forces browser to respect internal line spacing spaces */
+  color: #1a73e8;
+  font-weight: bold;
+}
+
+.lyric-line {
+  color: #f0efff;
 }

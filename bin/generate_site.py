@@ -3,6 +3,7 @@
 import json
 import html
 import os
+import re
 from pathlib import Path
 
 # Configuration
@@ -11,6 +12,17 @@ INDEX_PATH = "docs/index.html"
 SONGS_DIR = "docs/c"
 SONGS_DATA_PATH = "./data/index.json"
 
+# Regex matching common chord structures (e.g., C, Am, F#maj7, D/F#)
+CHORD_REGEX = re.compile(
+    r"^(?:[A-G][b#]?(?:m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13)*)(?:\/[A-G][b#]?)?$"
+)
+
+def is_chord_line(line_text):
+    """Returns True if every word in the line matches a chord structure."""
+    words = line_text.split()
+    if not words:
+        return False  # Empty lines are not chord lines
+    return all(CHORD_REGEX.match(w) for w in words)
 
 def generate_site():
     # Ensure target directories exist
@@ -67,6 +79,38 @@ def generate_site():
 
             column_count = index_data.get(filename, {}).get("column_count", 1)
 
+            # --- Inside your song processing loop ---
+            # Assuming 'cleaned_lines' is the list of lines from the previous step
+
+            div_lines = []
+            content_started = False
+
+            for line in cleaned_lines:
+                # Replicate the '.lstrip()' behavior by skipping initial empty lines
+                if not content_started and line.strip() == "":
+                    continue
+                content_started = True
+
+                # Check the raw line for chords before escaping characters
+                if is_chord_line(line):
+                    line_class = "line chord-line"
+                elif line.strip() == "":
+                    line_class = "line empty-line"
+                else:
+                    line_class = "line lyric-line"
+
+                # Escape HTML symbols safely and preserve spacing inside the div
+                escaped_text = html.escape(line)
+
+                # Use non-breaking space for empty lines so they take up vertical space
+                if line_class == "line empty-line":
+                    escaped_text = "&nbsp;"
+
+                div_lines.append(f'    <div class="{line_class}">{escaped_text}</div>')
+
+            # Join all generated row elements together
+            song_divs_html = "\n".join(div_lines)
+
             # 2. Build the individual song HTML template
             song_html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -84,7 +128,9 @@ def generate_site():
         <div></div>
     </nav>
 
-    <pre style="--columns: {column_count};">{safe_content}</pre>
+    <div class="song-container" style="--columns: {column_count};">
+        {song_divs_html}
+    </div>
 
     <script src="/assets/script.js"></script>
 </body>

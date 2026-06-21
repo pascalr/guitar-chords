@@ -252,8 +252,12 @@ def generate_site():
 </head>
 <body>
 
-    <nav class="navbar">
-        <div>Site de Pascal - Accords</div>
+    <nav class="index-navbar">
+        <div style="flex: 0 1 12em;"></div>
+        <div style="flex: 1 0 auto;"></div>
+        <div class="website-title">Site de Pascal - Accords</div>
+        <div style="flex: 1 0 auto;"></div>
+        <div style="flex-shrink: 0;"><a href="./cheatsheet.html">Aide-mémoire</a></div>
     </nav>
 
     <main class="index-content">

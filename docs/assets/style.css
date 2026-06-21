@@ -4,14 +4,28 @@ body {
   color: #f9bc49;
 }
 
-.navbar {
+.index-navbar {
   height: 3rem;
   background-color: #262323;
   text-align: center;
   line-height: 3rem;
-  font-size: 1.4em;
   color: white;
+  display: flex;
+}
+
+.index-navbar > div {
+    min-width: 0;
+}
+
+.index-navbar a, .index-navbar a:visited {
   text-decoration: none;
+  color: white;
+  padding: 1em;
+}
+
+.index-navbar .website-title {
+  font-size: 1.4em;
+  flex-shrink: 0;
 }
 
 .song-navbar {

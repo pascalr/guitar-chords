@@ -122,7 +122,7 @@
     "Dany Bédar - Faire la paix avec l'amour": {
         "author": "Dany Bédar",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Faire la paix avec l'amour",
         "scale": 1.0
@@ -130,7 +130,7 @@
     "David Bowie - Space Oddity": {
         "author": "David Bowie",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Space Oddity",
         "scale": 1.0
@@ -138,7 +138,7 @@
     "Deep Blue Something - Breakfast at Tiffany's": {
         "author": "Deep Blue Something",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Breakfast at Tiffany's",
         "scale": 1.0
@@ -154,7 +154,7 @@
     "Dropkick Murphys - Rose tattoo": {
         "author": "Dropkick Murphys",
         "capo": null,
-        "column_count": 1,
+        "column_count": 4,
         "key": null,
         "name": "Rose tattoo",
         "scale": 1.0
@@ -162,7 +162,7 @@
     "Eagle-Eyed Cherry - Save tonight": {
         "author": "Eagle",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "Eyed Cherry - Save tonight",
         "scale": 1.0
@@ -170,7 +170,7 @@
     "Ed Sheeran - Galway Girl": {
         "author": "Ed Sheeran",
         "capo": 2,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "Galway Girl",
         "scale": 1.0
@@ -178,7 +178,7 @@
     "Ed Sheeran - The A team": {
         "author": "Ed Sheeran",
         "capo": "2",
-        "column_count": 1,
+        "column_count": 2,
         "key": "A",
         "name": "The A team",
         "scale": 1.0
@@ -186,7 +186,7 @@
     "Edward Sharpe & The Magnetic Zeros - Home": {
         "author": "Edward Sharpe & The Magnetic Zeros",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "Home",
         "scale": 1.0
@@ -250,7 +250,7 @@
     "Gotye - Somebody that I used to know": {
         "author": "Gotye",
         "capo": "5",
-        "column_count": 1,
+        "column_count": 3,
         "key": "Dm",
         "name": "Somebody that I used to know",
         "scale": 1.0
@@ -282,7 +282,7 @@
     "Harry Styles - Sign of the times": {
         "author": "Harry Styles",
         "capo": null,
-        "column_count": 2,
+        "column_count": 4,
         "key": null,
         "name": "Sign of the times",
         "scale": 1.0
@@ -298,7 +298,7 @@
     "Imagine Dragons - Radioactive": {
         "author": "Imagine Dragons",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Radioactive",
         "scale": 1.0
@@ -306,7 +306,7 @@
     "James Blunt - Goodbye My Lover": {
         "author": "James Blunt",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": "E",
         "name": "Goodbye My Lover",
         "scale": 1.0
@@ -314,7 +314,7 @@
     "James Blunt - You're Beautiful": {
         "author": "James Blunt",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "You're Beautiful",
         "scale": 1.0
@@ -322,7 +322,7 @@
     "Jason Mraz - I'm Yours": {
         "author": "Jason Mraz",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "I'm Yours",
         "scale": 1.0
@@ -354,7 +354,7 @@
     "John Legend - All of me": {
         "author": "John Legend",
         "capo": "1",
-        "column_count": 1,
+        "column_count": 3,
         "key": "Em",
         "name": "All of me",
         "scale": 1.0
@@ -370,7 +370,7 @@
     "Johnny Cash - It aint me babe": {
         "author": "Johnny Cash",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "It aint me babe",
         "scale": 1.0
@@ -386,7 +386,7 @@
     "La Chicane - Juste pour voir le monde": {
         "author": "La Chicane",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Juste pour voir le monde",
         "scale": 1.0
@@ -402,7 +402,7 @@
     "Led Zeppelin -  Stairway to Heaven": {
         "author": "Led Zeppelin",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Stairway to Heaven",
         "scale": 1.0
@@ -410,7 +410,7 @@
     "Les cowboys fringants - Marine marchande": {
         "author": "Les cowboys fringants",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "Marine marchande",
         "scale": 1.0
@@ -434,7 +434,7 @@
     "Louise Forestier - Dans la prison de Londres": {
         "author": "Louise Forestier",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Dans la prison de Londres",
         "scale": 1.0
@@ -442,7 +442,7 @@
     "Lukas Graham - 7 Years Old": {
         "author": "Lukas Graham",
         "capo": 3,
-        "column_count": 2,
+        "column_count": 4,
         "key": null,
         "name": "7 Years Old",
         "scale": 1.0
@@ -450,7 +450,7 @@
     "Manau - La tribu de Dana": {
         "author": "Manau",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "La tribu de Dana",
         "scale": 1.0
@@ -466,7 +466,7 @@
     "Mumford & Sons - Little Lion Man": {
         "author": "Mumford & Sons",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Little Lion Man",
         "scale": 1.0
@@ -482,7 +482,7 @@
     "Niall Horan - Slow Hands": {
         "author": "Niall Horan",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "Slow Hands",
         "scale": 1.0
@@ -490,7 +490,7 @@
     "Nine inch nails - Everyday is exactly the same": {
         "author": "Nine inch nails",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Everyday is exactly the same",
         "scale": 1.0
@@ -498,7 +498,7 @@
     "Nirvana - Smells like teen spirit": {
         "author": "Nirvana",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Smells like teen spirit",
         "scale": 1.0
@@ -522,7 +522,7 @@
     "Pascale Picard - Gate 22": {
         "author": "Pascale Picard",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Gate 22",
         "scale": 1.0
@@ -530,7 +530,7 @@
     "Paul Piché - L'escalier": {
         "author": "Paul Piché",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "L'escalier",
         "scale": 1.0
@@ -546,7 +546,7 @@
     "Phlake - Pregnant": {
         "author": "Phlake",
         "capo": "1",
-        "column_count": 2,
+        "column_count": 4,
         "key": null,
         "name": "Pregnant",
         "scale": 1.0
@@ -554,7 +554,7 @@
     "Pink - Just give me a reason": {
         "author": "Pink",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "Just give me a reason",
         "scale": 1.0
@@ -562,7 +562,7 @@
     "Queen - Crazy Little Thing Called Love": {
         "author": "Queen",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Crazy Little Thing Called Love",
         "scale": 1.0
@@ -570,7 +570,7 @@
     "Québec Redneck - Chu ben plus cool ça brosse": {
         "author": "Québec Redneck",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Chu ben plus cool ça brosse",
         "scale": 1.0
@@ -586,7 +586,7 @@
     "REM - Losing my religion": {
         "author": "REM",
         "capo": null,
-        "column_count": 2,
+        "column_count": 4,
         "key": "Am",
         "name": "Losing my religion",
         "scale": 1.0

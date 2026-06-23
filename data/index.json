@@ -26,7 +26,7 @@
     "Beau Dommage - Le blues de la métropole": {
         "author": "Beau Dommage",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Le blues de la métropole",
         "scale": 1.0
@@ -34,7 +34,7 @@
     "Beau dommage - Picbois": {
         "author": "Beau dommage",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Picbois",
         "scale": 1.0
@@ -49,7 +49,7 @@
     "Bernard Adamus - Brun la couleur de l'amour": {
         "author": "Bernard Adamus",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Brun la couleur de l'amour",
         "scale": 1.0
@@ -57,10 +57,11 @@
     "Bernard Adamus - Fulton Road": {
         "author": "Bernard Adamus",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Fulton Road",
-        "scale": 1.0
+        "scale": 1.0,
+        "chordpro": true
     },
     "Bill Haley and His Comets - Rock Around The Clock": {
         "author": "Bill Haley and His Comets",
@@ -152,8 +153,8 @@
     },
     "Diane Tell - Si j'étais un homme": {
         "author": "Diane Tell",
-        "capo": null,
-        "column_count": 1,
+        "capo": 3,
+        "column_count": 2,
         "key": null,
         "name": "Si j'étais un homme",
         "scale": 1.0
@@ -249,7 +250,7 @@
     "Gerry Boulet - Un beau grand bateau": {
         "author": "Gerry Boulet",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Un beau grand bateau",
         "scale": 1.0
@@ -272,8 +273,8 @@
     },
     "Harmonium - Pour un instant": {
         "author": "Harmonium",
-        "capo": null,
-        "column_count": 1,
+        "capo": 3,
+        "column_count": 2,
         "key": null,
         "name": "Pour un instant",
         "scale": 1.0
@@ -281,7 +282,7 @@
     "Harmonium - Un musicien parmis tant d'autres": {
         "author": "Harmonium",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Un musicien parmis tant d'autres",
         "scale": 1.0
@@ -296,8 +297,8 @@
     },
     "Hugo Lapointe - Célibataire": {
         "author": "Hugo Lapointe",
-        "capo": 2,
-        "column_count": 2,
+        "capo": null,
+        "column_count": 4,
         "key": null,
         "name": "Célibataire",
         "scale": 1.0
@@ -345,7 +346,7 @@
     "Jean Leloup - Balade à toronto": {
         "author": "Jean Leloup",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Balade à toronto",
         "scale": 1.0
@@ -353,7 +354,7 @@
     "Joe Dassin - Aux Champs Élysées": {
         "author": "Joe Dassin",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "Aux Champs Élysées",
         "scale": 1.0
@@ -393,15 +394,15 @@
     "La Chicane - Juste pour voir le monde": {
         "author": "La Chicane",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Juste pour voir le monde",
         "scale": 1.0
     },
     "La Chicane - Tu m'manques": {
         "author": "La Chicane",
-        "capo": null,
-        "column_count": 1,
+        "capo": 3,
+        "column_count": 2,
         "key": null,
         "name": "Tu m'manques",
         "scale": 1.0
@@ -416,8 +417,8 @@
     },
     "Les cowboys fringants - Marine marchande": {
         "author": "Les cowboys fringants",
-        "capo": null,
-        "column_count": 3,
+        "capo": 6,
+        "column_count": 4,
         "key": null,
         "name": "Marine marchande",
         "scale": 1.0

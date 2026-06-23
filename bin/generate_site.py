@@ -29,13 +29,19 @@ CHORD_REGEX = re.compile(
     r"\)?$"
 )
 
+PARENTHESIS_CLEANER = re.compile(r"\([^)]*\)")
+
 def is_chord_line(line_text):
     """Returns True if every word in the line matches a chord structure."""
-    words = line_text.split()
+
+    # Remove anything inside parentheses (including parentheses themselves)
+    cleaned_line = PARENTHESIS_CLEANER.sub("", line_text)
+
+    words = cleaned_line.split()
     if not words:
         return False  # Empty lines are not chord lines
 
-    return all(CHORD_REGEX.match(w) for w in words)
+    return all(CHORD_REGEX.fullmatch(w) for w in words)
 
 def generate_site():
     # Ensure target directories exist

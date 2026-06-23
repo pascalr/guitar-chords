@@ -39,6 +39,13 @@
         "name": "Picbois",
         "scale": 1.0
     },
+    "Benson Boone - Beautiful Things": {
+        "author": "Benson Boone",
+        "capo": null,
+        "column_count": 3,
+        "key": null,
+        "name": "Beautiful Things"
+    },
     "Bernard Adamus - Brun la couleur de l'amour": {
         "author": "Bernard Adamus",
         "capo": null,
@@ -594,7 +601,7 @@
     "Red Hot Chilly Peppers - Californication": {
         "author": "Red Hot Chilly Peppers",
         "capo": null,
-        "column_count": 2,
+        "column_count": 4,
         "key": null,
         "name": "Californication",
         "scale": 1.0
@@ -602,7 +609,7 @@
     "Red Hot Chilly Peppers - Otherside": {
         "author": "Red Hot Chilly Peppers",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Otherside",
         "scale": 1.0
@@ -610,7 +617,7 @@
     "Renaud - L'hexagone": {
         "author": "Renaud",
         "capo": null,
-        "column_count": 1,
+        "column_count": 4,
         "key": null,
         "name": "L'hexagone",
         "scale": 1.0
@@ -618,7 +625,7 @@
     "Richard Desjardins - Le bon gars": {
         "author": "Richard Desjardins",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Le bon gars",
         "scale": 1.0
@@ -626,7 +633,7 @@
     "Richard Desjardins - Tu m'aimes tu": {
         "author": "Richard Desjardins",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Tu m'aimes tu",
         "scale": 1.0
@@ -634,7 +641,7 @@
     "Rise Against - Hero Of War": {
         "author": "Rise Against",
         "capo": null,
-        "column_count": 2,
+        "column_count": 4,
         "key": null,
         "name": "Hero Of War",
         "scale": 1.0
@@ -650,7 +657,7 @@
     "Roxane Bruneau - Des p'tits bout de toi": {
         "author": "Roxane Bruneau",
         "capo": 2,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Des p'tits bout de toi",
         "scale": 1.0
@@ -666,7 +673,7 @@
     "Simon & Garfunkel - The Boxer": {
         "author": "Simon & Garfunkel",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "The Boxer",
         "scale": 1.0
@@ -674,7 +681,7 @@
     "Sleeping at Last - Safety Dance": {
         "author": "Sleeping at Last",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Safety Dance",
         "scale": 1.0
@@ -682,7 +689,7 @@
     "Stromae - Papaoutai (Papa ou tu es)": {
         "author": "Stromae",
         "capo": null,
-        "column_count": 2,
+        "column_count": 4,
         "key": null,
         "name": "Papaoutai (Papa ou tu es)",
         "scale": 1.0
@@ -698,7 +705,7 @@
     "Suzy Island - Show Me The Way": {
         "author": "Suzy Island",
         "capo": null,
-        "column_count": 2,
+        "column_count": 4,
         "key": null,
         "name": "Show Me The Way",
         "scale": 1.0
@@ -714,7 +721,7 @@
     "Tenacious D - Tribute": {
         "author": "Tenacious D",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Tribute",
         "scale": 1.0
@@ -730,7 +737,7 @@
     "The Dead South - In Hell Il Be In Good Company": {
         "author": "The Dead South",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "In Hell Il Be In Good Company",
         "scale": 1.0
@@ -746,7 +753,7 @@
     "The Rolling Stones - You can't always get what you want": {
         "author": "The Rolling Stones",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "You can't always get what you want",
         "scale": 1.0
@@ -754,7 +761,7 @@
     "The White Strips - Seven Army Nation": {
         "author": "The White Strips",
         "capo": null,
-        "column_count": 2,
+        "column_count": 3,
         "key": null,
         "name": "Seven Army Nation",
         "scale": 1.0
@@ -770,7 +777,7 @@
     "Tones And I - Dance Monkey": {
         "author": "Tones And I",
         "capo": null,
-        "column_count": 2,
+        "column_count": 4,
         "key": null,
         "name": "Dance Monkey",
         "scale": 1.0
@@ -778,7 +785,7 @@
     "Vincent Vallières - À hauteur d'homme": {
         "author": "Vincent Vallières",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "À hauteur d'homme",
         "scale": 1.0
@@ -786,7 +793,7 @@
     "Yelawolf - Till it's gone": {
         "author": "Yelawolf",
         "capo": null,
-        "column_count": 1,
+        "column_count": 3,
         "key": null,
         "name": "Till it's gone",
         "scale": 1.0

@@ -25,4 +25,11 @@ TODO: Chansons à corriger:
 - Led Zeppelin - Stairway to Heaven: E+ ???
 - Manau - La tribu de Dana
 - Pascale Picard - Gate 22
-En bas de REM - Losing my religion
+- Red Hot Chilly Peppers - Otherside: Am - F - C - G
+- Stromae - Papaoutai (Papa ou tu es) (barré version)
+- Styx - Come Sail Away: C Em Am Am \ G \ F
+- The Beatles - She Loves You : D [N.C.] G G/F#
+
+TODO: Des liens vers les musique.
+
+Ou simplement un lien youtube, quand tu cliques dessus, ça t'envoie vers youtube avec la recherche d'écrite dessus.

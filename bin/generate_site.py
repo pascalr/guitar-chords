@@ -15,19 +15,20 @@ SONGS_DATA_PATH = "./data/index.json"
 
 CHORD_REGEX = re.compile(
     r"^(?:"
-    r"(?:"
-        r"(?:[A-G][b#]?(?:m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\-|slide)*)"
-        r"(?:\/[A-G][b#]?)?"
-    r")"
-    r"\*?"
-    r"(?:\([^)]*\))?"
-    r"(?:[xX]\d+)?"
-    r"|"
-    r"[xX]\d+"
-    r"|"
-    r"N\.?C\.?"
-    r"|"
-    r"slide"
+        r"(?:"
+            r"[A-G][b#]?"                          # root
+            r"(?:m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\+|\-|slide)*"
+            r"(?:/[A-G][b#]?)?"                    # slash chord
+        r")"
+        r"\*?"
+        r"(?:\([^)]*\))?"
+        r"(?:\d+[xX]|[xX]\d+)?"                    # 2x or x2
+        r"|"
+        r"\d+[xX]|[xX]\d+"                         # standalone 2x or x2
+        r"|"
+        r"N\.?C\.?"
+        r"|"
+        r"slide"
     r")$"
 )
 

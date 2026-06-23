@@ -14,18 +14,24 @@ SONGS_DIR = "docs/c"
 SONGS_DATA_PATH = "./data/index.json"
 
 NOTE = r"[A-G][b#]?" # matches A, Ab, A#
+CHORD = (
+    NOTE + r"(m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\+|\-)*" # matches Am, Abmin, E+, ...
+)
 CHORD_REGEX = re.compile(
     r"^("
-        + NOTE +
+        r"\|?" # matches |
+        + CHORD +
         r"(m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\+|\-|slide)*" # matches Am, Abmin, E+, ...
-        r"([\/\\]"+NOTE+")?" # matches A/F#, Am\G
+        r"([\/\\]"+CHORD+")?" # matches A/F#, Am\G
         r",?" # matches ,
         r"\*?" # matches *
+        r"\|?" # matches |
         r"(\d+[xX]|[xX]\d+)?" # matches x2 or 2x
         r"|(\d+[xX]|[xX]\d+)" # matches x2 or 2x standalone, not directly after a chord
         r"|N\.?C\.?" # matches N.C. or NC or NC.
         r"|slide" # matches slide
         r"|\*" # matches standalone asterisk
+        r"|\|?" # matches |
     r")$"
 )
 

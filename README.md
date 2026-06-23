@@ -18,7 +18,6 @@ TODO: Commencer avec capo en tout cas, considérer seulement le "Capo: 2" de la 
 TODO: Les accords en français corriger.
 
 TODO: Chansons à corriger:
-- Led Zeppelin - Stairway to Heaven: E+ ???
 - Manau - La tribu de Dana
 - Pascale Picard - Gate 22
 - Red Hot Chilly Peppers - Otherside: Am - F - C - G

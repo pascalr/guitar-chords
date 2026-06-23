@@ -41,6 +41,11 @@ body {
   align-items: center;
 }
 
+.song-navbar a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .index-content {
   max-width: 800px;
   margin: auto;

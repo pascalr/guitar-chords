@@ -6,6 +6,7 @@ import os
 import re
 import math
 from pathlib import Path
+from urllib.parse import quote_plus
 
 # Configuration
 CHORDS_DIR = "./data/chords"
@@ -262,6 +263,9 @@ def generate_site():
             # Join all column containers together
             song_divs_html = "\n".join(column_divs)
 
+            # quote_plus turns "Phlake Pregnant" into "Phlake+Pregnant"
+            encoded_song_name = quote_plus(song_name)
+
             capo_value = index_data.get(filename, {}).get("capo", 0)
 
             # Assuming 'capo_value' comes from your JSON index or file parsing
@@ -290,6 +294,11 @@ def generate_site():
             <div>{song_name}</div>
             {capo_text}
             <div style="flex-grow: 1;"></div>
+            <div>
+                <a href="https://www.youtube.com/results?search_query={encoded_song_name}" target="_blank">
+                    Youtube
+                </a>
+            </div>
         </nav>
 
         <div style="flex-grow: 1;"></div>

@@ -19,9 +19,23 @@ SONGS_DATA_PATH = "./data/index.json"
 #)
 
 # Updated to support optional chord multipliers like x4 or X2 (attached or standalone)
+#CHORD_REGEX = re.compile(
+#    r"^(?:"
+#    r"(?:[A-G][b#]?(?:m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13)*)(?:\/[A-G][b#]?)?(?:[xX]\d+)?"
+#    r"|"
+#    r"[xX]\d+"
+#    r")$"
+#)
+
 CHORD_REGEX = re.compile(
     r"^(?:"
-    r"(?:[A-G][b#]?(?:m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13)*)(?:\/[A-G][b#]?)?(?:[xX]\d+)?"
+    r"(?:"
+        r"(?:[A-G][b#]?(?:m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\-)*)" # Added \-
+        r"(?:\/[A-G][b#]?)?"
+    r")"
+    r"\*?"                                                                   # Added optional asterisk
+    r"(?:\([^)]*\))?"                                                        # Added optional text in parentheses
+    r"(?:[xX]\d+)?"
     r"|"
     r"[xX]\d+"
     r")$"
@@ -262,7 +276,7 @@ def generate_site():
 
     <main class="index-content">
 
-        <div style="display: flex; justify-content: center; margin: 2em;">
+        <div style="display: flex; justify-content: center; margin: 2em 2em 1.5em 2em;">
             <input type="text" id="search-bar" placeholder="Rechercher une chanson...">
         </div>
 

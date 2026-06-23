@@ -193,7 +193,7 @@
     "Edward Sharpe & The Magnetic Zeros - Home": {
         "author": "Edward Sharpe & The Magnetic Zeros",
         "capo": null,
-        "column_count": 3,
+        "column_count": 4,
         "key": null,
         "name": "Home",
         "scale": 1.0
@@ -328,7 +328,7 @@
     },
     "Jason Mraz - I'm Yours": {
         "author": "Jason Mraz",
-        "capo": null,
+        "capo": 4,
         "column_count": 3,
         "key": null,
         "name": "I'm Yours",

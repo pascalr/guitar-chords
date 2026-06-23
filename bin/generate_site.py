@@ -13,20 +13,6 @@ INDEX_PATH = "docs/index.html"
 SONGS_DIR = "docs/c"
 SONGS_DATA_PATH = "./data/index.json"
 
-## Regex matching common chord structures (e.g., C, Am, F#maj7, D/F#)
-#CHORD_REGEX = re.compile(
-#    r"^(?:[A-G][b#]?(?:m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13)*)(?:\/[A-G][b#]?)?$"
-#)
-
-# Updated to support optional chord multipliers like x4 or X2 (attached or standalone)
-#CHORD_REGEX = re.compile(
-#    r"^(?:"
-#    r"(?:[A-G][b#]?(?:m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13)*)(?:\/[A-G][b#]?)?(?:[xX]\d+)?"
-#    r"|"
-#    r"[xX]\d+"
-#    r")$"
-#)
-
 CHORD_REGEX = re.compile(
     r"^(?:"
     r"(?:"

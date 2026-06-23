@@ -13,7 +13,7 @@ INDEX_PATH = "docs/index.html"
 SONGS_DIR = "docs/c"
 SONGS_DATA_PATH = "./data/index.json"
 
-NOTE = r"[A-G][b#]?" # matches A, Ab, A#
+NOTE = r"[A-G][b#♯♭]?" # matches A, Ab, A#
 CHORD = (
     NOTE + r"(m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\+|\-)*" # matches Am, Abmin, E+, ...
 )
@@ -52,6 +52,67 @@ def is_chord_line(line_text):
 
     return all(CHORD_REGEX.fullmatch(w) for w in words)
 
+def convert_chordpro_to_inline(chordpro_text: str) -> str:
+    """
+    Converts a ChordPro formatted string (with chords in square brackets)
+    into a traditional chord-over-lyrics format with proper spacing.
+    """
+    output_lines = []
+    
+    # Split the input text into individual lines
+    lines = chordpro_text.splitlines()
+    
+    for line in lines:
+        # Check if the line contains any chords
+        if '[' not in line:
+            # If no chords, just keep the line as is (e.g., headers or blank lines)
+            output_lines.append(line)
+            continue
+            
+        chord_line = ""
+        lyric_line = ""
+        current_lyric_index = 0
+        
+        # Find all occurrences of chords wrapped in brackets
+        # re.finditer gives us the match and its position in the original string
+        matches = list(re.finditer(r'\[([^\]]+)\]', line))
+        
+        for i, match in enumerate(matches):
+            chord = match.group(1)
+            match_start = match.start()
+            
+            # 1. Append the lyrics that came BEFORE this chord
+            # We must strip out previous chords to know the true lyric position
+            previous_lyrics = line[current_lyric_index:match_start]
+            lyric_line += previous_lyrics
+            
+            # 2. Calculate how many spaces we need on the chord line 
+            # to line it up perfectly with the current length of the lyric line
+            spaces_needed = len(lyric_line) - len(chord_line)
+            
+            if spaces_needed > 0:
+                chord_line += " " * spaces_needed
+            elif len(chord_line) > 0 and spaces_needed <= 0:
+                # If chords are back-to-back, add a single space so they don't merge
+                chord_line += " "
+                # Pad the lyric line to keep up with the chord line spacing
+                lyric_line += " " * (len(chord_line) - len(lyric_line))
+            
+            # 3. Add the chord to the chord line
+            chord_line += chord
+            
+            # Update our index pointer past the current [Chord] tag
+            current_lyric_index = match.end()
+            
+        # Append any remaining lyrics after the last chord
+        lyric_line += line[current_lyric_index:]
+        
+        # Combine the chord line and lyric line, then add to output
+        output_lines.append(chord_line.rstrip())
+        output_lines.append(lyric_line.rstrip())
+        
+    return "\n".join(output_lines)
+
 def generate_site():
     # Ensure target directories exist
     os.makedirs(SONGS_DIR, exist_ok=True)
@@ -89,9 +150,16 @@ def generate_site():
                 print(f"Could not read {filename}: {e}")
                 continue
 
+            is_chordpro = index_data.get(filename, {}).get("chordpro", False)
+
+            if is_chordpro:
+                song_text = convert_chordpro_to_inline(song_content)
+            else:
+                song_text = song_content
+
             # Filter out lines starting with "Capo:" or "Key:"
             cleaned_lines = []
-            for line in song_content.splitlines():
+            for line in song_text.splitlines():
                 # .lstrip() ensures it catches them even if there are accidental spaces before "Capo:"
                 if line.lstrip().startswith("Capo:") or line.lstrip().startswith(
                     "Key:"

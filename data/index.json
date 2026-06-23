@@ -465,10 +465,11 @@
     "Mario Pelchat - Je ne t'aime plus": {
         "author": "Mario Pelchat",
         "capo": null,
-        "column_count": 1,
+        "column_count": 2,
         "key": null,
         "name": "Je ne t'aime plus",
-        "scale": 1.0
+        "scale": 1.0,
+        "chordpro": true
     },
     "Mumford & Sons - Little Lion Man": {
         "author": "Mumford & Sons",

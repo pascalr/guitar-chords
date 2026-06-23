@@ -123,3 +123,19 @@ body {
 #capo-btn[data-state="transposed"]:hover {
   background-color: rgba(255, 255, 255, 0.15); /* Adds a subtle white tint */
 }
+
+#search-bar {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#search-bar:focus {
+  border-color: #ff6b6b;
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.15);
+}

@@ -261,6 +261,11 @@ def generate_site():
     </nav>
 
     <main class="index-content">
+
+        <div style="display: flex; justify-content: center; margin: 2em;">
+            <input type="text" id="search-bar" placeholder="Rechercher une chanson...">
+        </div>
+
         <ul class="song-list">
             {list_items}
         </ul>

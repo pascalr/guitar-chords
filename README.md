@@ -18,8 +18,6 @@ TODO: Commencer avec capo en tout cas, considérer seulement le "Capo: 2" de la 
 TODO: Les accords en français corriger.
 
 TODO: Chansons à corriger:
-- Manau - La tribu de Dana
-- Pascale Picard - Gate 22
 - Red Hot Chilly Peppers - Otherside: Am - F - C - G
 - Stromae - Papaoutai (Papa ou tu es) (barré version)
 - Styx - Come Sail Away: C Em Am Am \ G \ F

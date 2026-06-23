@@ -13,20 +13,20 @@ INDEX_PATH = "docs/index.html"
 SONGS_DIR = "docs/c"
 SONGS_DATA_PATH = "./data/index.json"
 
+NOTE = r"[A-G][b#]?" # matches A, Ab, A#
 CHORD_REGEX = re.compile(
-    r"^\(?"
-    r"("
-        r"[A-G][b#]?" # matches A, Ab, A#
+    r"^("
+        + NOTE +
         r"(m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\+|\-|slide)*" # matches Am, Abmin, E+, ...
-        r"([\/\\][A-G][b#]?)?" # matches A/F#, Am\G
+        r"([\/\\]"+NOTE+")?" # matches A/F#, Am\G
         r",?" # matches ,
         r"\*?" # matches *
         r"(\d+[xX]|[xX]\d+)?" # matches x2 or 2x
         r"|(\d+[xX]|[xX]\d+)" # matches x2 or 2x standalone, not directly after a chord
         r"|N\.?C\.?" # matches N.C. or NC or NC.
         r"|slide" # matches slide
-    r")"
-    r"\)?$"
+        r"|\*" # matches standalone asterisk
+    r")$"
 )
 
 PARENTHESIS_CLEANER = re.compile(r"\([^)]*\)")

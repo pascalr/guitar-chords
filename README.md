@@ -33,3 +33,5 @@ TODO: Chansons à corriger:
 TODO: Des liens vers les musique.
 
 Ou simplement un lien youtube, quand tu cliques dessus, ça t'envoie vers youtube avec la recherche d'écrite dessus.
+
+TODO: Afficher Sans capo par défaut. Tu peux cliquer dessus pour avoir avec capo.

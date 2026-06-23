@@ -271,7 +271,7 @@ def generate_site():
         </ul>
     </main>
 
-    <script src="./assets/script.js"></script>
+    <script src="./assets/index.js"></script>
 </body>
 </html>
 """

@@ -46,8 +46,13 @@ body {
   margin: auto;
 }
 
+ul.song-list {
+  margin: 0;
+}
+
 .song-list li {
   list-style-type: none;
+  padding-bottom: 0.1em;
 }
 
 .song-list li a {
@@ -128,14 +133,22 @@ body {
   flex: 1;
   padding: 12px 20px;
   font-size: 16px;
-  border: 2px solid #ddd;
+  background-color: #1e1e1e; /* Dark background for the input */
+  color: #ffffff;            /* White text color */
+  border: 2px solid #333;    /* Subtle dark border instead of light gray */
   border-radius: 25px;
   outline: none;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+}
+
+/* Optional: Style the placeholder text so it isn't too bright */
+#search-bar::placeholder {
+  color: #888;
 }
 
 #search-bar:focus {
-  border-color: #ff6b6b;
-  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.15);
+  background-color: #252525; /* Slightly lighter dark shade on focus */
+  border-color: #ff6b6b;     /* Keeps your accent color */
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.25); /* Enhanced glow effect for dark mode */
 }

@@ -14,22 +14,19 @@ SONGS_DIR = "docs/c"
 SONGS_DATA_PATH = "./data/index.json"
 
 CHORD_REGEX = re.compile(
-    r"^(?:"
-        r"(?:"
-            r"[A-G][b#]?"                          # root
-            r"(?:m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\+|\-|slide)*"
-            r"(?:/[A-G][b#]?)?"                    # slash chord
-        r")"
-        r"\*?"
-        r"(?:\([^)]*\))?"
-        r"(?:\d+[xX]|[xX]\d+)?"                    # 2x or x2
-        r"|"
-        r"\d+[xX]|[xX]\d+"                         # standalone 2x or x2
-        r"|"
-        r"N\.?C\.?"
-        r"|"
-        r"slide"
-    r")$"
+    r"^\(?"
+    r"("
+        r"[A-G][b#]?" # matches A, Ab, A#
+        r"(m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\+|\-|slide)*" # matches Am, Abmin, E+, ...
+        r"([\/\\][A-G][b#]?)?" # matches A/F#, Am\G
+        r",?" # matches ,
+        r"\*?" # matches *
+        r"(\d+[xX]|[xX]\d+)?" # matches x2 or 2x
+        r"|(\d+[xX]|[xX]\d+)" # matches x2 or 2x standalone, not directly after a chord
+        r"|N\.?C\.?" # matches N.C. or NC or NC.
+        r"|slide" # matches slide
+    r")"
+    r"\)?$"
 )
 
 def is_chord_line(line_text):
@@ -38,13 +35,7 @@ def is_chord_line(line_text):
     if not words:
         return False  # Empty lines are not chord lines
 
-    clean_words = []
-    for w in words:
-        # Strip parentheses from the edges of the word if they exist
-        clean_word = w.strip("()")
-        clean_words.append(clean_word)
-        
-    return all(CHORD_REGEX.match(w) for w in clean_words)
+    return all(CHORD_REGEX.match(w) for w in words)
 
 def generate_site():
     # Ensure target directories exist

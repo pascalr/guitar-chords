@@ -36,6 +36,9 @@ body {
   font-size: 1.6rem;
   font-weight: bold;
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .index-content {
@@ -123,7 +126,7 @@ body {
 
 .hero {
   text-align: center;
-  padding: 10rem 2rem 2.5rem 2rem;
+  padding: 0.5rem 2rem 2.5rem 2rem;
 }
 
 .hero h1 {

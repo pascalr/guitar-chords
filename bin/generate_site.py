@@ -389,7 +389,10 @@ def generate_site():
     <nav class="index-navbar">
         <div style="flex: 0 1 12em;"></div>
         <div style="flex: 1 0 auto;"></div>
-        <div class="website-title">Site de Pascal - <span class="gold">Accords</span></div>
+        <div class="website-title">
+            <img src="./assets/img/guitar_icon.png">
+            Site de Pascal - <span class="gold">Accords</span>
+        </div>
         <div style="flex: 1 0 auto;"></div>
         <div style="flex-shrink: 0;"><a href="./cheatsheet.html"><img src="./assets/img/book.svg" style="width: 18px; vertical-align: middle;"> Aide-mémoire</a></div>
     </nav>

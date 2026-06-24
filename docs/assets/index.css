@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  color: #f9bc49;
+  color: #fbc63c;
   background:
       linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.9)),
       url("../assets/img/background.png");
@@ -70,7 +70,7 @@ body {
 }
 
 .gold {
-  color: #f9bc49;
+  color: #fbc63c;
 }
 
 .song-list li a:hover {
@@ -111,9 +111,10 @@ body {
 }
 
 /* Optional: Style the placeholder text so it isn't too bright */
-/*#search-bar::placeholder {
+#search-bar::placeholder {
   color: #888;
-}*/
+  font-size: 0.9em;
+}
 
 #search-bar:focus {
   border-color: #f9bc49;

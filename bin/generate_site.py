@@ -351,8 +351,8 @@ def generate_site():
     <main class="index-content">
 
         <section class="hero">
-            <h1>Bienvenue sur mon site d'accords</h1>
-            <p>Trouvez rapidement les accords de vos chansons préférées</p>
+            <h1>Bienvenue sur mon site <span class="gold">d'accords</span></h1>
+            <p>Consultez des accords de chansons québécoises et internationales</p>
 
             <div class="search-container">
                 <input type="text" id="search-bar" placeholder="Rechercher une chanson...">

@@ -16,6 +16,7 @@ Ou simplement un lien youtube, quand tu cliques dessus, ça t'envoie vers youtub
 TODO: Afficher Sans capo par défaut. Tu peux cliquer dessus pour avoir avec capo.
 
 Hero of war: Capo 4
+This is the life: Capo 4
 
 Diane Tell - Si j'étais un homme: Si j'appuie plusieurs fois sur Capo ça devient undefined
 

@@ -2,7 +2,7 @@ body {
   margin: 0;
   color: #f9bc49;
   background:
-      linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.9)),
+      linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.9)),
       url("../assets/img/background.png");
   background-size: cover;
   background-attachment: fixed;
@@ -69,6 +69,10 @@ body {
   transition: .2s;
 }
 
+.gold {
+  color: #f9bc49;
+}
+
 .song-list li a:hover {
   background: rgba(249,188,73,.08);
   padding-left: 28px;
@@ -85,7 +89,7 @@ body {
 
 #search-bar {
   width: min(800px, 100%);
-  padding: 18px 24px;
+  padding: 12px 20px 12px 55px; /* Extra padding on the left (45px) clears room for the icon */
   font-size: 1.1rem;
 
   background: rgba(30,30,30,.85);
@@ -97,6 +101,13 @@ body {
   box-sizing: border-box;
 
   transition: .25s;
+
+  /* Injecting the Search SVG directly as a background image */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E5A93C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 18px center; /* Positions the icon precisely on the left */
+  background-size: 28px 28px;        /* Sizes the icon perfectly */
+  transition: border-color 0.2s;
 }
 
 /* Optional: Style the placeholder text so it isn't too bright */
@@ -111,7 +122,7 @@ body {
 
 .hero {
   text-align: center;
-  padding: 5rem 2rem 3rem 2rem;
+  padding: 10rem 2rem 3rem 2rem;
 }
 
 .hero h1 {
@@ -123,7 +134,7 @@ body {
 .hero p {
   margin-top: 1rem;
   margin-bottom: 2rem;
-  color: #d0d0d0;
+  color: #a4a4a4;
   font-size: 1.15rem;
 }
 

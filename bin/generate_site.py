@@ -22,7 +22,6 @@ CHORD_REGEX = re.compile(
     r"^("
         r"\|?" # matches |
         + CHORD +
-        r"(m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\+|\-|slide)*" # matches Am, Abmin, E+, ...
         r"([\/\\]"+CHORD+")?" # matches A/F#, Am\G
         r",?" # matches ,
         r"\**" # matches * or **
@@ -31,6 +30,8 @@ CHORD_REGEX = re.compile(
         r"|(\d+[xX]|[xX]\d+)" # matches x2 or 2x standalone, not directly after a chord
         r"|N\.?C\.?" # matches N.C. or NC or NC.
         r"|slide" # matches slide
+        r"|RIFF( \d+)?" # matches RIFF
+        r"|\d" # matches a number (was added for RIFF 1, RIFF 2...)
         r"|\*" # matches standalone asterisk
         r"|\|?" # matches |
         r"|\/?" # matches /

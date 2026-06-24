@@ -345,18 +345,27 @@ def generate_site():
         <div style="flex: 1 0 auto;"></div>
         <div class="website-title">Site de Pascal - Accords</div>
         <div style="flex: 1 0 auto;"></div>
-        <div style="flex-shrink: 0;"><a href="./cheatsheet.html">Aide-mémoire</a></div>
+        <div style="flex-shrink: 0;"><a href="./cheatsheet.html">📖 Aide-mémoire</a></div>
     </nav>
 
     <main class="index-content">
 
-        <div style="display: flex; justify-content: center; margin: 2em 2em 1.5em 2em;">
-            <input type="text" id="search-bar" placeholder="Rechercher une chanson...">
-        </div>
+        <section class="hero">
+            <h1>Bienvenue sur mon site d'accords</h1>
+            <p>Trouvez rapidement les accords de vos chansons préférées</p>
 
-        <ul class="song-list">
-            {list_items}
-        </ul>
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Rechercher une chanson...">
+            </div>
+        </section>
+
+        <section class="song-section">
+            <h2>🎵 Chansons</h2>
+
+            <ul class="song-list">
+                {list_items}
+            </ul>
+        </section>
     </main>
 
     <script src="./assets/index.js"></script>

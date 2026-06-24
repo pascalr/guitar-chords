@@ -1,16 +1,21 @@
 body {
-  background-color: black;
   margin: 0;
   color: #f9bc49;
+  background:
+      linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.9)),
+      url("../assets/img/background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .index-navbar {
-  height: 3rem;
-  background-color: #262323;
-  text-align: center;
-  line-height: 3rem;
-  color: white;
+  height: 4rem;
+  background: rgba(20,20,20,.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
   display: flex;
+  align-items: center;
 }
 
 .index-navbar > div {
@@ -24,8 +29,9 @@ body {
 }
 
 .index-navbar .website-title {
-  font-size: 1.4em;
-  flex-shrink: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
 }
 
 .index-content {
@@ -33,40 +39,101 @@ body {
   margin: auto;
 }
 
-ul.song-list {
+.song-list {
   margin: 0;
+  padding: 0;
+
+  background: rgba(20,20,20,.65);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px;
+
+  overflow: hidden;
 }
 
 .song-list li {
-  list-style-type: none;
-  padding-bottom: 0.1em;
+  list-style: none;
 }
 
 .song-list li a {
-  text-decoration: none;
+  display: block;
+
+  padding: 14px 20px;
+
   color: #f9bc49;
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(255,255,255,.05);
+
+  transition: .2s;
+}
+
+.song-list li a:hover {
+  background: rgba(249,188,73,.08);
+  padding-left: 28px;
+}
+
+.song-list li:last-child a {
+  border-bottom: none;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
 }
 
 #search-bar {
-  flex: 1;
-  padding: 12px 20px;
-  font-size: 16px;
-  background-color: #1e1e1e; /* Dark background for the input */
-  color: #ffffff;            /* White text color */
-  border: 2px solid #333;    /* Subtle dark border instead of light gray */
-  border-radius: 25px;
-  outline: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+  width: min(800px, 100%);
+  padding: 18px 24px;
+  font-size: 1.1rem;
+
+  background: rgba(30,30,30,.85);
+  color: white;
+
+  border: 1px solid rgba(249,188,73,.4);
+  border-radius: 999px;
+
+  box-sizing: border-box;
+
+  transition: .25s;
 }
 
 /* Optional: Style the placeholder text so it isn't too bright */
-#search-bar::placeholder {
+/*#search-bar::placeholder {
   color: #888;
-}
+}*/
 
 #search-bar:focus {
-  background-color: #252525; /* Slightly lighter dark shade on focus */
-  border-color: #ff6b6b;     /* Keeps your accent color */
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.25); /* Enhanced glow effect for dark mode */
+  border-color: #f9bc49;
+  box-shadow: 0 0 20px rgba(249,188,73,.25);
+}
+
+.hero {
+  text-align: center;
+  padding: 5rem 2rem 3rem 2rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: white;
+}
+
+.hero p {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: #d0d0d0;
+  font-size: 1.15rem;
+}
+
+.song-section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2rem 4rem 2rem;
+}
+
+.song-section h2 {
+  color: white;
+  margin-bottom: 1rem;
 }

@@ -33,6 +33,7 @@ body {
 }
 
 .index-navbar .website-title {
+  margin-left: 0.75rem;
   font-size: 1.6rem;
   font-weight: bold;
   color: white;

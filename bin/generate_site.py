@@ -387,8 +387,6 @@ def generate_site():
 <body>
 
     <nav class="index-navbar">
-        <div style="flex: 0 1 12em;"></div>
-        <div style="flex: 1 0 auto;"></div>
         <div class="website-title">
             <img src="./assets/img/guitar_icon.png">
             Site de Pascal - <span class="gold">Accords</span>

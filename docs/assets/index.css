@@ -1,6 +1,10 @@
+:root {
+  --gold: #fbc63c;
+}
+
 body {
   margin: 0;
-  color: #fbc63c;
+  color: #fff;
   background:
       linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.9)),
       url("../assets/img/background.png");
@@ -58,19 +62,15 @@ body {
 
 .song-list li a {
   display: block;
-
+  color: #fff;
   padding: 14px 20px;
-
-  color: #f9bc49;
   text-decoration: none;
-
   border-bottom: 1px solid rgba(255,255,255,.05);
-
   transition: .2s;
 }
 
 .gold {
-  color: #fbc63c;
+  color: var(--gold);
 }
 
 .song-list li a:hover {

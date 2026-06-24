@@ -140,8 +140,17 @@ def generate_site():
         file_path = os.path.join(CHORDS_DIR, filename)
 
         if os.path.isfile(file_path):
-            song_name = Path(filename).stem
-            songs.append(song_name)
+            song_filename = Path(filename).stem
+            is_chordpro = index_data.get(filename, {}).get("chordpro", False)
+            song_author = index_data.get(filename, {}).get("author", "")
+            song_name = index_data.get(filename, {}).get("name", "")
+
+            # Append as a dictionary
+            songs.append({
+                "url": song_filename,
+                "author": song_author,
+                "name": song_name
+            })
 
             # 1. Read the raw chord/lyric file content
             try:
@@ -150,8 +159,6 @@ def generate_site():
             except Exception as e:
                 print(f"Could not read {filename}: {e}")
                 continue
-
-            is_chordpro = index_data.get(filename, {}).get("chordpro", False)
 
             if is_chordpro:
                 song_text = convert_chordpro_to_inline(song_content)
@@ -264,7 +271,7 @@ def generate_site():
             song_divs_html = "\n".join(column_divs)
 
             # quote_plus turns "Phlake Pregnant" into "Phlake+Pregnant"
-            encoded_song_name = quote_plus(song_name)
+            encoded_song_filename = quote_plus(song_filename)
 
             capo_value = index_data.get(filename, {}).get("capo", 0)
 
@@ -281,7 +288,7 @@ def generate_site():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{song_name} - Site de Pascal</title>
+    <title>{song_filename} - Site de Pascal</title>
     <link rel="stylesheet" href="../assets/song.css">
 </head>
 <body>
@@ -291,11 +298,11 @@ def generate_site():
         <nav class="song-navbar">
             <div><a href=".." style="color: inherit; text-decoration: none;">← Retour</a></div>
             <div style="flex-grow: 1;"></div>
-            <div>{song_name}</div>
+            <div>{song_filename}</div>
             {capo_text}
             <div style="flex-grow: 1;"></div>
             <div>
-                <a href="https://www.youtube.com/results?search_query={encoded_song_name}" target="_blank">
+                <a href="https://www.youtube.com/results?search_query={encoded_song_filename}" target="_blank">
                     Youtube
                 </a>
             </div>
@@ -317,17 +324,17 @@ def generate_site():
 """
 
             # 3. Write the individual song file to docs/c/
-            song_output_path = os.path.join(SONGS_DIR, f"{song_name}.html")
+            song_output_path = os.path.join(SONGS_DIR, f"{song_filename}.html")
             with open(song_output_path, "w", encoding="utf-8") as f:
                 f.write(song_html)
 
-    # Sort the index list alphabetically
-    songs.sort()
+    # Sort by author name when songs are dictionaries
+    songs.sort(key=lambda song: song["author"])
 
     # 4. Generate the index.html list items
     list_items = ""
     for song in songs:
-        list_items += f'            <li><a href="./c/{song}.html">{song}</a></li>\n'
+        list_items += f'            <li><a href="./c/{song["url"]}.html"><span class="gold">{song["author"]}</span> - {song["name"]}</a></li>\n'
 
     # 5. Build and write the main index.html page
     index_html = f"""<!DOCTYPE html>

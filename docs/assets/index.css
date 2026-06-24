@@ -1,0 +1,72 @@
+body {
+  background-color: black;
+  margin: 0;
+  color: #f9bc49;
+}
+
+.index-navbar {
+  height: 3rem;
+  background-color: #262323;
+  text-align: center;
+  line-height: 3rem;
+  color: white;
+  display: flex;
+}
+
+.index-navbar > div {
+    min-width: 0;
+}
+
+.index-navbar a, .index-navbar a:visited {
+  text-decoration: none;
+  color: white;
+  padding: 1em;
+}
+
+.index-navbar .website-title {
+  font-size: 1.4em;
+  flex-shrink: 0;
+}
+
+.index-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+ul.song-list {
+  margin: 0;
+}
+
+.song-list li {
+  list-style-type: none;
+  padding-bottom: 0.1em;
+}
+
+.song-list li a {
+  text-decoration: none;
+  color: #f9bc49;
+}
+
+#search-bar {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #1e1e1e; /* Dark background for the input */
+  color: #ffffff;            /* White text color */
+  border: 2px solid #333;    /* Subtle dark border instead of light gray */
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+}
+
+/* Optional: Style the placeholder text so it isn't too bright */
+#search-bar::placeholder {
+  color: #888;
+}
+
+#search-bar:focus {
+  background-color: #252525; /* Slightly lighter dark shade on focus */
+  border-color: #ff6b6b;     /* Keeps your accent color */
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.25); /* Enhanced glow effect for dark mode */
+}

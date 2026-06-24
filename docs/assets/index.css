@@ -147,7 +147,25 @@ body {
 
 .song-section h2 {
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+}
+
+.song-section h2 > svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.song-section h2::after {
+    content: "";
+    flex-grow: 1;        /* Forces the line to take up all remaining space on the right */
+    height: 1px;         /* The thickness of your line */
+    background-color: rgba(249,188,73,.4); /* Line color—change to var(--gold) if you want it gold! */
+    margin-left: 0.8em;
 }
 
 .song-list li > a {

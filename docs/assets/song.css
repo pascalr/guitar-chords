@@ -79,7 +79,7 @@ body {
   user-select: none;         /* Prevents ugly blue text-highlighting on double clicks */
   text-transform: uppercase; /* Optional: Makes it look a bit more like a UI element */
   letter-spacing: 0.5px;
-  transition: all 0.2s ease; /* Smoothly animates hover effects */
+  transition: background-color 0.2s ease; /* Smoothly animates hover effects */
   height: fit-content;
   line-height: 1.5em;
 

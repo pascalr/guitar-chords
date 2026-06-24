@@ -5,8 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!capoBtn || !songContainer) return;
 
     // 1. Read the initial value and text ONCE when the page loads
-    const match = capoBtn.textContent.match(/\d+/);
-    const capoValue = match ? parseInt(match[0], 10) : 0;
+    // Map of Roman numerals to integers for quick lookup
+    const romanMap = { 'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7, 'VIII': 8, 'IX': 9, 'X': 10, 'XI': 11, 'XII': 12 };
+
+    // 1. Extract the Roman numeral token (matches any combination of I, V, or X)
+    const match = capoBtn.textContent.match(/[IVX]+/i);
+    
+    // 2. Convert it to an integer, defaulting to 0 if no Roman numeral is found
+    const capoValue = match ? (romanMap[match[0].toUpperCase()] || 0) : 0;
     
     if (capoValue === 0) return; // Exit if no capo is required
 
@@ -63,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
             capoBtn.style.color = "";      // Clears inline style, falling back to your red CSS default
         }
     });
+
+    capoBtn.click();
 });
 
 /**

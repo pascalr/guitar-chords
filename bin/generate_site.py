@@ -54,6 +54,26 @@ def is_chord_line(line_text):
 
     return all(CHORD_REGEX.fullmatch(w) for w in words)
 
+def int_to_roman(capo_value):
+    # 1. Handle None, False, or empty string early
+    if not capo_value:
+        return ""
+
+    # 2. Safely convert string digits (like "3") into an actual integer
+    try:
+        capo_value = int(capo_value)
+    except ValueError:
+        return "" # Returns empty if it's an invalid string like "three"
+
+    # Lookup list
+    roman_numerals = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
+    
+    # 3. Perform the integer check
+    if 1 <= capo_value <= 12:
+        return roman_numerals[capo_value - 1]
+    
+    return capo_value
+
 def convert_chordpro_to_inline(chordpro_text: str) -> str:
     """
     Converts a ChordPro formatted string (with chords in square brackets)
@@ -275,11 +295,12 @@ def generate_site():
             encoded_song_filename = quote_plus(song_filename)
 
             capo_value = index_data.get(filename, {}).get("capo", 0)
+            capo_roman_value = int_to_roman(capo_value)
 
             # Assuming 'capo_value' comes from your JSON index or file parsing
             # This checks if capo_value exists, and ensures it isn't "0", empty, or None
             if capo_value and str(capo_value).strip() not in ["0", "None", ""]:
-                capo_text = f"<div id='capo-btn'>capo {capo_value}</div>"
+                capo_text = f"<div id='capo-btn'>capo {capo_roman_value}</div>"
             else:
                 capo_text = ""
 
@@ -331,7 +352,7 @@ def generate_site():
 
     </div>
 
-    <script src="../assets/script.js"></script>
+    <script src="../assets/song.js"></script>
 </body>
 </html>
 """

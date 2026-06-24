@@ -341,8 +341,8 @@ def generate_site():
             with open(song_output_path, "w", encoding="utf-8") as f:
                 f.write(song_html)
 
-    # Sort by author name when songs are dictionaries
-    songs.sort(key=lambda song: song["author"])
+    # Sort case-insensitively by author, then by song name
+    songs.sort(key=lambda song: (song["author"].lower(), song["name"].lower()))
 
     # 4. Generate the index.html list items
     #list_items = ""
@@ -397,6 +397,7 @@ def generate_site():
     <main class="index-content">
 
         <section class="hero">
+            <img src="./assets/img/guitar_logo.png">
             <h1>Bienvenue sur mon site <span class="gold">d'accords</span></h1>
             <p>Consultez des accords de chansons québécoises et internationales</p>
 

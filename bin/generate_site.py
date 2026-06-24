@@ -296,13 +296,25 @@ def generate_site():
     <div class="song-page-container">
 
         <nav class="song-navbar">
-            <div><a href=".." style="color: inherit; text-decoration: none;">← Retour</a></div>
+            <div>
+                <a href=".." style="color: inherit; text-decoration: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                        <line x1="19" y1="12" x2="5" y2="12" />
+                        <polyline points="12 19 5 12 12 5" />
+                    </svg>
+                    Retour
+                </a>
+            </div>
             <div style="flex-grow: 1;"></div>
-            <div>{song_filename}</div>
+            <div><span class="gold">{song_author}</span> - {song_name}</div>
             {capo_text}
             <div style="flex-grow: 1;"></div>
             <div>
                 <a href="https://www.youtube.com/results?search_query={encoded_song_filename}" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                    </svg>
                     Youtube
                 </a>
             </div>
@@ -332,9 +344,35 @@ def generate_site():
     songs.sort(key=lambda song: song["author"])
 
     # 4. Generate the index.html list items
+    #list_items = ""
+    #for song in songs:
+    #    list_items += f'            <li><a href="./c/{song["url"]}.html"><span class="gold">{song["author"]}</span> - {song["name"]}</a></li>\n'
+    
+    # 4. Generate the index.html list items
     list_items = ""
     for song in songs:
-        list_items += f'            <li><a href="./c/{song["url"]}.html"><span class="gold">{song["author"]}</span> - {song["name"]}</a></li>\n'
+        list_items += f"""            <li>
+              <a href="./c/{song["url"]}.html">
+                <!-- Left Icon (Star) -->
+                <svg class="icon-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E5A93C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="100" height="100">
+                    <path d="M9 18V5l12-2v13" />
+                    <circle cx="6" cy="18" r="3" fill="#E5A93C" fill-opacity="0.2"/>
+                    <circle cx="18" cy="16" r="3" fill="#E5A93C" fill-opacity="0.2"/>
+                </svg>
+
+                
+                <!-- Center Text -->
+                <span class="song-text">
+                   <span class="gold">{song["author"]}</span> - {song["name"]}
+                </span>
+                
+                <!-- Right Chevron -->
+                <svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </li>
+"""
+
+        
 
     # 5. Build and write the main index.html page
     index_html = f"""<!DOCTYPE html>

@@ -75,7 +75,7 @@ body {
 
 .song-list li a:hover {
   background: rgba(249,188,73,.08);
-  padding-left: 28px;
+  /*padding-left: 28px;*/
 }
 
 .song-list li:last-child a {
@@ -148,4 +148,33 @@ body {
 .song-section h2 {
   color: white;
   margin-bottom: 1rem;
+}
+
+.song-list li > a {
+  display: flex;
+  align-items: center; /* Vertically centers icons and text */
+}
+
+/* Center text spacing */
+.song-text {
+    flex-grow: 1; /* Pushes the right chevron all the way to the edge */
+    font-size: 15px;
+}
+
+/* Base styles for both icons */
+.icon-left, 
+.icon-right {
+    width: 18px;
+    height: 18px;
+    color: #E5A93C; /* Matches your gold/amber theme */
+    flex-shrink: 0; /* Prevents icons from squishing on small screens */
+}
+
+/* Specific spacing for the icons */
+.icon-left {
+    margin-right: 14px;
+}
+
+.icon-right {
+    margin-left: 14px;
 }

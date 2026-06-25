@@ -22,10 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
     capoBtn.addEventListener("click", () => {
         const currentState = capoBtn.dataset.state;
         const chordLines = document.querySelectorAll("div.chord-line");
+        const tabLines = document.querySelectorAll("div.tab-line");
         
         // Determine math direction: 
         // Going to sans capo? Shift UP (+capoValue). Returning to capo? Shift DOWN (-capoValue).
         const semitones = currentState === "original" ? capoValue : -capoValue;
+
+        tabLines.forEach((line) => {
+            const originalText = line.textContent;
+            line.textContent = transposeTabLine(originalText, semitones);
+        });
 
         chordLines.forEach((line) => {
             const originalText = line.textContent;
@@ -117,23 +123,43 @@ function transposeChord(chord, semitones) {
     let newIndex = ((index + semitones) % 12 + 12) % 12;
     let newRoot = scale[newIndex];
     
-    // Handle slash chords/compound bass notes (e.g., C/E -> D/F#)
+    // Handle slash chords safely
     if (remainder.includes("/")) {
         const parts = remainder.split("/");
+
         const bassMatch = parts[1].match(/^([A-G][b#]?)/);
         if (bassMatch) {
             let bassRoot = bassMatch[1];
-            const bassRemainder = parts[1].slice(bassRoot.length);
-            
+            let bassRemainder = parts[1].slice(bassRoot.length);
+
             if (normalize[bassRoot]) bassRoot = normalize[bassRoot];
+
             let bassIndex = scale.indexOf(bassRoot);
+
             if (bassIndex !== -1) {
-                let newBassIndex = (bassIndex + semitones) % 12;
-                parts[1] = scale[newBassIndex] + bassRemainder;
+                let newBassIndex = ((bassIndex + semitones) % 12 + 12) % 12;
+                let newBass = scale[newBassIndex];
+
+                parts[1] = newBass + bassRemainder;
+            } else {
+                // ⚠️ fallback: do NOT corrupt chord
+                parts[1] = parts[1];
             }
         }
+
         remainder = parts[0] + "/" + parts[1];
     }
     
     return prefix + newRoot + remainder + suffix;
+}
+
+function transposeTabLine(text, semitones) {
+    // Replace numbers in guitar tabs (supports multi-digit frets)
+    return text.replace(/\d+/g, (match) => {
+        const num = parseInt(match, 10);
+        const shifted = num + semitones;
+
+        // Keep fret numbers valid (no negatives)
+        return shifted >= 0 ? String(shifted) : "0";
+    });
 }

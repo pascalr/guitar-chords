@@ -40,6 +40,11 @@ CHORD_REGEX = re.compile(
     r")$"
 )
 
+TAB_LINE_RE = re.compile(r"^\s*[ABCDEFGabcdefg]\s*\|[0123456789\-/\\()hpbx~| ]+.*$")
+
+def is_tab_line(line: str) -> bool:
+    return TAB_LINE_RE.match(line) is not None
+
 PARENTHESIS_CLEANER = re.compile(r"\([^)]*\)")
 
 def is_chord_line(line_text):
@@ -221,6 +226,9 @@ def generate_site():
                 # Determine classification
                 if is_chord_line(line):
                     line_class = "line chord-line"
+                    escaped_text = html.escape(line)
+                elif is_tab_line(line):
+                    line_class = "line tab-line"
                     escaped_text = html.escape(line)
                 elif line.strip() == "":
                     line_class = "line empty-line"

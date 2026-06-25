@@ -57,7 +57,7 @@ body {
   font-weight: bold;
 }
 
-.lyric-line {
+.lyric-line, .tab-line {
   white-space: pre; /* Forces browser to respect internal line spacing spaces */
   font-weight: bold;
 }

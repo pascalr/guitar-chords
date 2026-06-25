@@ -2,13 +2,12 @@
 
 A minimilastic website to store personal guitar chords sheets.
 
-Au lieu de faire index.json, simplement rajouter "column_count: 2" dans les chansons directement?
-Parce que je n'aime pas que capo soit dupliqué dans la chanson et dans index.json par exemple.
-Ou bien juste le faire pour capo et pas pour column_count?
-TODO: Commencer avec capo en tout cas, considérer seulement le "Capo: 2" de la chanson et non regarder index.json.
+FIXME: Je n'aime pas que capo soit dupliqué dans la chanson et dans index.json. Possiblement se fier seulement à avoir "Capo: \d" dans la chanson et non se fier à index.json.
 
 TODO: Les accords en français corriger.
 
-Ou simplement un lien youtube, quand tu cliques dessus, ça t'envoie vers youtube avec la recherche d'écrite dessus.
-
 TODO: Selon le key de la chanson, afficher des flats au lieu d'afficher des dièses en cliquant sur le bouton capo. Tu Me Manques Chords by La Chicane. Devrait être Eb au lieu de D#.
+
+TODO: Une manière plus simple et interactive de rajouter une chanson. (Ça te montre ce que ça l'air et tu peux corriger, par exemple le nombre de colonnes)
+
+TODO: Favicon

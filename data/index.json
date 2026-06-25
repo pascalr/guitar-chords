@@ -57,11 +57,11 @@
     "Bernard Adamus - Fulton Road": {
         "author": "Bernard Adamus",
         "capo": null,
+        "chordpro": true,
         "column_count": 2,
         "key": null,
         "name": "Fulton Road",
-        "scale": 1.0,
-        "chordpro": true
+        "scale": 1.0
     },
     "Bill Haley and His Comets - Rock Around The Clock": {
         "author": "Bill Haley and His Comets",
@@ -70,6 +70,13 @@
         "key": null,
         "name": "Rock Around The Clock",
         "scale": 1.0
+    },
+    "Billy Talent - Fallen Leaves": {
+        "author": "Billy Talent",
+        "capo": "3",
+        "column_count": 3,
+        "key": null,
+        "name": "Fallen Leaves"
     },
     "Blink 182 - I Miss You": {
         "author": "Blink 182",
@@ -199,6 +206,13 @@
         "name": "Home",
         "scale": 1.0
     },
+    "Encanto - Surface Pressure": {
+        "author": "Encanto",
+        "capo": null,
+        "column_count": 3,
+        "key": null,
+        "name": "Surface Pressure"
+    },
     "Everlast - What it's like": {
         "author": "Everlast",
         "capo": null,
@@ -221,6 +235,14 @@
         "column_count": 3,
         "key": null,
         "name": "Take Me Out",
+        "scale": 1.0
+    },
+    "Frozen - Je voudrais un bonhomme de neige": {
+        "author": "Frozen",
+        "capo": 3,
+        "column_count": 2,
+        "key": null,
+        "name": "Je voudrais un bonhomme de neige",
         "scale": 1.0
     },
     "Frozen - Let it go": {
@@ -333,14 +355,6 @@
         "column_count": 3,
         "key": null,
         "name": "I'm Yours",
-        "scale": 1.0
-    },
-    "Frozen - Je voudrais un bonhomme de neige": {
-        "author": "Frozen",
-        "capo": 3,
-        "column_count": 2,
-        "key": null,
-        "name": "Je voudrais un bonhomme de neige",
         "scale": 1.0
     },
     "Jean Leloup - Balade à toronto": {
@@ -466,11 +480,18 @@
     "Mario Pelchat - Je ne t'aime plus": {
         "author": "Mario Pelchat",
         "capo": null,
+        "chordpro": true,
         "column_count": 2,
         "key": null,
         "name": "Je ne t'aime plus",
-        "scale": 1.0,
-        "chordpro": true
+        "scale": 1.0
+    },
+    "Miley Cyrus - Flowers": {
+        "author": "Miley Cyrus",
+        "column_count": 3,
+        "capo": null,
+        "key": null,
+        "name": "Flowers"
     },
     "Mumford & Sons - Little Lion Man": {
         "author": "Mumford & Sons",
@@ -479,6 +500,13 @@
         "key": null,
         "name": "Little Lion Man",
         "scale": 1.0
+    },
+    "Nathan Evans - Wellerman": {
+        "author": "Nathan Evans",
+        "capo": "3",
+        "column_count": 4,
+        "key": null,
+        "name": "Wellerman"
     },
     "Neil Young - Southern man": {
         "author": "Neil Young",
@@ -519,6 +547,13 @@
         "key": null,
         "name": "le vent nous portera",
         "scale": 1.0
+    },
+    "Notre Dame De Paris - Le Temps Des Cathédrales": {
+        "author": "Notre Dame De Paris",
+        "column_count": 2,
+        "capo": null,
+        "key": null,
+        "name": "Le Temps Des Cathédrales"
     },
     "Offenbach - Mes blues passent pu dans porte": {
         "author": "Offenbach",

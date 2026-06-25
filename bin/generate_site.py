@@ -319,6 +319,7 @@ def generate_site():
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{song_filename} - Site de Pascal</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="stylesheet" href="../assets/song.css">
 </head>
 <body>
@@ -411,6 +412,7 @@ def generate_site():
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de Pascal - Accords</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="stylesheet" href="./assets/index.css">
 </head>
 <body>

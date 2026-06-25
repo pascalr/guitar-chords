@@ -16,7 +16,7 @@ SONGS_DATA_PATH = "./data/index.json"
 
 NOTE = r"[A-G][b#♯♭]?" # matches A, Ab, A#
 CHORD = (
-    NOTE + r"(m|maj|min|dim|aug|sus|add|add#|2|4|5|6|7|9|11|13|\+|\-)*" # matches Am, Abmin, E+, ...
+    NOTE + r"(m|maj|Maj|min|dim|aug|sus|add|add#|2|4|5|6|7|9|11|13|\+|\-)*" # matches Am, Abmin, E+, ...
 )
 CHORD_REGEX = re.compile(
     r"^("

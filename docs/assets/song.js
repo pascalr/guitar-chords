@@ -75,20 +75,31 @@ document.addEventListener("DOMContentLoaded", () => {
  * while preserving parentheses, modifiers, and slash-bass notes.
  */
 function transposeChord(chord, semitones) {
-    const scale = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-    const normalize = { "Db": "C#", "Eb": "D#", "Gb": "F#", "Ab": "G#", "Bb": "A#" };
+    // 1. Map all possible notes to their numeric chromatic index (0-11)
+    const noteToId = {
+        "C": 0,  "C#": 1,  "Db": 1,  "D": 2,  "D#": 3,  "Eb": 3,
+        "E": 4,  "F": 5,   "F#": 6,  "Gb": 6, "G": 7,   "G#": 8,
+        "Ab": 8, "A": 9,   "A#": 10, "Bb": 10, "B": 11
+    };
+
+    let scale = [];
+    const SHARP_KEYS = ["G", "D", "A", "E", "B", "F#", "C#", "Em", "Bm", "F#m", "C#m"];
+    
+    if (!songKey || SHARP_KEYS.includes(songKey)) {
+        scale = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+    } else {
+        scale = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
+    }
     
     let prefix = "";
     let suffix = "";
     let core = chord;
     
-    // Strip and save structural parenthesis/multipliers wrappers
     if (core.startsWith("(")) {
         prefix = "(";
         core = core.slice(1);
     }
     
-    // Handle trailing multipliers like )x4 or x4
     const xMatch = core.match(/([xX]\d+)\)?$/);
     if (xMatch) {
         suffix = xMatch[1] + suffix;
@@ -99,45 +110,34 @@ function transposeChord(chord, semitones) {
         core = core.slice(0, -1);
     }
 
-    // Extract the musical root note root (e.g., "F#", "Bb", "A")
     const rootMatch = core.match(/^([A-G][b#]?)/);
     if (!rootMatch) return chord; 
     
     let root = rootMatch[1];
     let remainder = core.slice(root.length);
     
-    if (normalize[root]) root = normalize[root];
-    let index = scale.indexOf(root);
-    if (index === -1) return chord;
+    // 2. Look up index via the universal map (Safe for both sharp and flat inputs)
+    if (!(root in noteToId)) return chord;
+    let index = noteToId[root];
     
-    // Transpose root up
     let newIndex = ((index + semitones) % 12 + 12) % 12;
     let newRoot = scale[newIndex];
     
-    // Handle slash chords safely
     if (remainder.includes("/")) {
         const parts = remainder.split("/");
-
         const bassMatch = parts[1].match(/^([A-G][b#]?)/);
+        
         if (bassMatch) {
             let bassRoot = bassMatch[1];
             let bassRemainder = parts[1].slice(bassRoot.length);
 
-            if (normalize[bassRoot]) bassRoot = normalize[bassRoot];
-
-            let bassIndex = scale.indexOf(bassRoot);
-
-            if (bassIndex !== -1) {
+            // 3. Apply the same safe map logic to the bass note
+            if (bassRoot in noteToId) {
+                let bassIndex = noteToId[bassRoot];
                 let newBassIndex = ((bassIndex + semitones) % 12 + 12) % 12;
-                let newBass = scale[newBassIndex];
-
-                parts[1] = newBass + bassRemainder;
-            } else {
-                // ⚠️ fallback: do NOT corrupt chord
-                parts[1] = parts[1];
+                parts[1] = scale[newBassIndex] + bassRemainder;
             }
         }
-
         remainder = parts[0] + "/" + parts[1];
     }
     

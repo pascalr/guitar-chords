@@ -4,21 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Aide-Mémoire | Guitar & Piano Reference</title>
-    <link rel="stylesheet" href="./assets/song.css">
+    <style>
+        :root {
+            --gold: #fbc63c;
+        }
+        .gold {
+            color: var(--gold);
+        }
+        body {
+            margin: 0;
+            color: #fff;
+            background-color: #050505;
+        }
+        .index-navbar {
+            height: 4rem;
+            background: rgba(20,20,20,.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            display: flex;
+            align-items: center;
+        }
+
+        .index-navbar > div {
+            min-width: 0;
+        }
+
+        .index-navbar a, .index-navbar a:visited {
+            text-decoration: none;
+            color: white;
+            padding: 1em;
+        }
+
+        .index-navbar .website-title {
+            margin-left: 0.75rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="song-navbar">
-        <div><a href="./index.html" style="color: inherit; text-decoration: none;">← Retour</a></div>
-        <div style="flex-grow: 1;"></div>
-        <div>Aide-Mémoire</div>
-        <div style="flex-grow: 1;"></div>
+    <nav class="index-navbar">
+        <div><a href="./index.html" style="color: inherit; text-decoration: none;">
+            <div class="website-title">
+                <img src="./assets/img/guitar_icon.png" style="width: 53px;">
+                Site de Pascal - <span class="gold">Accords</span>
+            </div>
+        </a></div>
     </nav>
 
     <div style="max-width: 800px; margin: auto;">
-      <h2>Cycle des quintes</h2>
+        <h1>Aide-Mémoire</h1>
 
-      <img src="./assets/img/circle_of_fifth.webp" style="max-height: 100vh;">
+        <img src="./assets/img/circle_of_fifth.webp" style="max-height: 100vh;">
     </div>
 
 </body>

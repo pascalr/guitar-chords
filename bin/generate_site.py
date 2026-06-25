@@ -302,7 +302,8 @@ def generate_site():
             # quote_plus turns "Phlake Pregnant" into "Phlake+Pregnant"
             encoded_song_filename = quote_plus(song_filename)
 
-            capo_value = index_data.get(filename, {}).get("capo", 0)
+            capo_value = index_data.get(filename, {}).get("capo") or 0
+            song_key = index_data.get(filename, {}).get("key") or ""
             capo_roman_value = int_to_roman(capo_value)
 
             # Assuming 'capo_value' comes from your JSON index or file parsing
@@ -361,6 +362,10 @@ def generate_site():
 
     </div>
 
+    <script>
+        var capoValue = {capo_value};
+        var songKey = "{song_key}";
+    </script>
     <script src="../assets/song.js"></script>
 </body>
 </html>

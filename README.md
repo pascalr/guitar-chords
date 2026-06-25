@@ -9,14 +9,6 @@ TODO: Commencer avec capo en tout cas, considérer seulement le "Capo: 2" de la 
 
 TODO: Les accords en français corriger.
 
-TODO: Des liens vers les musique.
-
 Ou simplement un lien youtube, quand tu cliques dessus, ça t'envoie vers youtube avec la recherche d'écrite dessus.
 
-Diane Tell - Si j'étais un homme: Si j'appuie plusieurs fois sur Capo ça devient undefined
-
 TODO: Selon le key de la chanson, afficher des flats au lieu d'afficher des dièses en cliquant sur le bouton capo. Tu Me Manques Chords by La Chicane. Devrait être Eb au lieu de D#.
-
-FIXME: The tabs are relative to capos, but I am not changing the tabs... Change the tabs as well?
-FIXME: Need to change when the chords are being defined too. (Or always add texte "Relative to capo")
-- Hero of war

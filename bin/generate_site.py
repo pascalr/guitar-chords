@@ -16,7 +16,7 @@ SONGS_DATA_PATH = "./data/index.json"
 
 NOTE = r"[A-G][b#♯♭]?" # matches A, Ab, A#
 CHORD = (
-    NOTE + r"(m|maj|min|dim|aug|sus|add|2|4|5|6|7|9|11|13|\+|\-)*" # matches Am, Abmin, E+, ...
+    NOTE + r"(m|maj|min|dim|aug|sus|add|add#|2|4|5|6|7|9|11|13|\+|\-)*" # matches Am, Abmin, E+, ...
 )
 CHORD_REGEX = re.compile(
     r"^("
@@ -40,7 +40,7 @@ CHORD_REGEX = re.compile(
     r")$"
 )
 
-TAB_LINE_RE = re.compile(r"^\s*[ABCDEFGabcdefg]\s*\|[0123456789\-/\\()hpbx~| ]+.*$")
+TAB_LINE_RE = re.compile(r"^\s*[ABCDEFGabcdefg]\s*(\|| \-)[0123456789\-/\\()hpbx~| ]+.*$")
 
 def is_tab_line(line: str) -> bool:
     return TAB_LINE_RE.match(line) is not None

@@ -71,6 +71,13 @@
         "name": "Rock Around The Clock",
         "scale": 1.0
     },
+    "Billy Joel - Piano Man": {
+        "author": "Billy Joel",
+        "capo": null,
+        "column_count": 3,
+        "key": "C",
+        "name": "Piano Man"
+    },
     "Billy Talent - Fallen Leaves": {
         "author": "Billy Talent",
         "capo": "3",

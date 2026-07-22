@@ -312,6 +312,11 @@ def generate_site():
                 capo_text = f"<div id='capo-btn'>capo {capo_roman_value}</div>"
             else:
                 capo_text = ""
+            
+            if song_key and str(song_key).strip() not in ["0", "None", ""]:
+                key_text = f"<div id='song-key'>{song_key}</div>"
+            else:
+                key_text = ""
 
             # 2. Build the individual song HTML template
             song_html = f"""<!DOCTYPE html>
@@ -340,6 +345,7 @@ def generate_site():
             <div style="flex-grow: 1;"></div>
             <div><span class="gold">{song_author}</span> - {song_name}</div>
             {capo_text}
+            {key_text}
             <div style="flex-grow: 1;"></div>
             <div>
                 <a href="https://www.youtube.com/results?search_query={encoded_song_filename}" target="_blank">

@@ -108,3 +108,19 @@ body {
 .gold {
   color: var(--gold)
 }
+
+#song-key {
+  margin-left: 1em;
+  padding: 0 0.5em;
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 20px;       /* Gives it a sleek, modern pill shape */
+  user-select: none;         /* Prevents ugly blue text-highlighting on double clicks */
+  /*letter-spacing: 0.5px;*/
+  height: fit-content;
+  line-height: 1.5em;
+
+  /* Default "White" State */
+  border: 2px solid white;
+}

@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+    handleCapoButtonClick();
+    handleKeyHover();
+});
+
+function handleCapoButtonClick() {
     const capoBtn = document.getElementById("capo-btn");
     const songContainer = document.querySelector(".song-container");
 
@@ -68,7 +73,78 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     capoBtn.click();
-});
+}
+
+function handleKeyHover() {
+    const majorScales = {
+        "C":  ["C", "D", "E", "F", "G", "A", "B"],
+        "Db": ["D", "E♭", "F", "G♭", "A♭", "B♭", "C"],
+        "D":  ["D", "E", "F♯", "G", "A", "B", "C♯"],
+        "Eb": ["E♭", "F", "G", "A♭", "B♭", "C", "D"],
+        "E":  ["E", "F♯", "G♯", "A", "B", "C♯", "D♯"],
+        "F":  ["F", "G", "A", "B♭", "C", "D", "E"],
+        "Gb": ["G♭", "A♭", "B♭", "C♭", "D♭", "E♭", "F"],
+        "G":  ["G", "A", "B", "C", "D", "E", "F♯"],
+        "Ab": ["A♭", "B♭", "C", "D♭", "E♭", "F", "G"],
+        "A":  ["A", "B", "C♯", "D", "E", "F♯", "G♯"],
+        "Bb": ["B♭", "C", "D", "E♭", "F", "G", "A"],
+        "B":  ["B", "C♯", "D♯", "E", "F♯", "G♯", "A♯"]
+    };
+
+    const minorScales = {
+        "Am": ["A", "B", "C", "D", "E", "F", "G"],
+        "Bbm": ["B♭", "C", "D♭", "E♭", "F", "G♭", "A♭"],
+        "Bm": ["B", "C♯", "D", "E", "F♯", "G", "A"],
+        "Cm": ["C", "D", "E♭", "F", "G", "A♭", "B♭"],
+        "C#m": ["C♯", "D♯", "E", "F♯", "G♯", "A", "B"],
+        "Dm": ["D", "E", "F", "G", "A", "B♭", "C"],
+        "Ebm": ["E♭", "F", "G♭", "A♭", "B♭", "C♭", "D♭"],
+        "Em": ["E", "F♯", "G", "A", "B", "C", "D"],
+        "Fm": ["F", "G", "A♭", "B♭", "C", "D♭", "E♭"],
+        "F#m": ["F♯", "G♯", "A", "B", "C♯", "D", "E"],
+        "Gm": ["G", "A", "B♭", "C", "D", "E♭", "F"],
+        "G#m": ["G♯", "A♯", "B", "C♯", "D♯", "E", "F♯"]
+    };
+
+    const scales = {...majorScales, ...minorScales};
+
+    const keyElement = document.getElementById("song-key");
+
+    const popup = document.createElement("div");
+    popup.id = "key-popup";
+    popup.style.cssText = `
+        position: absolute;
+        display: none;
+        background: white;
+        color: black;
+        font-size: 1.5em;
+        border: 1px solid #ccc;
+        padding: 8px;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0,0,0,.2);
+        z-index: 1000;
+    `;
+
+    document.body.appendChild(popup);
+
+    keyElement.addEventListener("mouseenter", () => {
+    const key = keyElement.textContent.trim();
+    const notes = scales[key];
+
+    if (notes) {
+        popup.textContent = notes.join("  ");
+
+        const rect = keyElement.getBoundingClientRect();
+        popup.style.left = `${rect.left + window.scrollX}px`;
+        popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+        popup.style.display = "block";
+    }
+    });
+
+    keyElement.addEventListener("mouseleave", () => {
+        popup.style.display = "none";
+    });
+}
 
 /**
  * Transposes an individual chord string up by a set number of semitones

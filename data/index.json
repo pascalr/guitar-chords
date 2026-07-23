@@ -11,7 +11,7 @@
         "author": "Amy MacDonald",
         "capo": 4,
         "column_count": 3,
-        "key": null,
+        "key": "C#m",
         "name": "This is the life",
         "scale": 1.0
     },
@@ -27,7 +27,7 @@
         "author": "Beau Dommage",
         "capo": null,
         "column_count": 2,
-        "key": null,
+        "key": "G",
         "name": "Le blues de la métropole",
         "scale": 1.0
     },
@@ -35,7 +35,7 @@
         "author": "Beau dommage",
         "capo": null,
         "column_count": 3,
-        "key": null,
+        "key": "Em",
         "name": "Picbois",
         "scale": 1.0
     },
@@ -43,7 +43,7 @@
         "author": "Benson Boone",
         "capo": null,
         "column_count": 3,
-        "key": null,
+        "key": "Bb",
         "name": "Beautiful Things"
     },
     "Bernard Adamus - Brun la couleur de l'amour": {

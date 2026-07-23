@@ -22,6 +22,8 @@ Mais il faut que ça continue de fonctionner avec le search
 
 TODO: Quand hover la key dans le titre en haut, afficher le circle of fifth avec la clé highlighté. Facilement voir c'est quelle notes qui sont flats ou diésès.
 
+TODO: Add the key of every songs
+
 TODO Songs:
 Piano Man
 Lady In Red
